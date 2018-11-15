@@ -15,7 +15,57 @@
 		FCA92B93219E158C00A3C839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B91219E158C00A3C839 /* Main.storyboard */; };
 		FCA92B95219E158D00A3C839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B94219E158D00A3C839 /* Assets.xcassets */; };
 		FCA92B98219E158D00A3C839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B96219E158D00A3C839 /* LaunchScreen.storyboard */; };
+		FCA92BA5219E17CC00A3C839 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA92BA3219E17CC00A3C839 /* Interface.storyboard */; };
+		FCA92BA7219E17CD00A3C839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92BA6219E17CD00A3C839 /* Assets.xcassets */; };
+		FCA92BAE219E17CE00A3C839 /* AnimalFlappersWK Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FCA92BAD219E17CE00A3C839 /* AnimalFlappersWK Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FCA92BB3219E17CE00A3C839 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92BB2219E17CE00A3C839 /* InterfaceController.swift */; };
+		FCA92BB5219E17CE00A3C839 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92BB4219E17CE00A3C839 /* ExtensionDelegate.swift */; };
+		FCA92BB7219E17CE00A3C839 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92BB6219E17CE00A3C839 /* NotificationController.swift */; };
+		FCA92BB9219E17CE00A3C839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92BB8219E17CE00A3C839 /* Assets.xcassets */; };
+		FCA92BBE219E17CE00A3C839 /* AnimalFlappersWK.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FCA92BA1219E17CC00A3C839 /* AnimalFlappersWK.app */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCA92BAF219E17CE00A3C839 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCA92B7C219E158C00A3C839 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCA92BAC219E17CE00A3C839;
+			remoteInfo = "AnimalFlappersWK Extension";
+		};
+		FCA92BBC219E17CE00A3C839 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCA92B7C219E158C00A3C839 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCA92BA0219E17CC00A3C839;
+			remoteInfo = AnimalFlappersWK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FCA92BC2219E17CE00A3C839 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FCA92BAE219E17CE00A3C839 /* AnimalFlappersWK Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA92BC6219E17CE00A3C839 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				FCA92BBE219E17CE00A3C839 /* AnimalFlappersWK.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FCA92B84219E158C00A3C839 /* AnimalFlappers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,10 +78,28 @@
 		FCA92B94219E158D00A3C839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCA92B97219E158D00A3C839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCA92B99219E158D00A3C839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA92BA1219E17CC00A3C839 /* AnimalFlappersWK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappersWK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA92BA4219E17CC00A3C839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		FCA92BA6219E17CD00A3C839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCA92BA8219E17CD00A3C839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA92BAD219E17CE00A3C839 /* AnimalFlappersWK Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AnimalFlappersWK Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA92BB2219E17CE00A3C839 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		FCA92BB4219E17CE00A3C839 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		FCA92BB6219E17CE00A3C839 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		FCA92BB8219E17CE00A3C839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCA92BBA219E17CE00A3C839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA92BBB219E17CE00A3C839 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FCA92B81219E158C00A3C839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA92BAA219E17CE00A3C839 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				FCA92B86219E158C00A3C839 /* AnimalFlappers */,
+				FCA92BA2219E17CC00A3C839 /* AnimalFlappersWK */,
+				FCA92BB1219E17CE00A3C839 /* AnimalFlappersWK Extension */,
 				FCA92B85219E158C00A3C839 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				FCA92B84219E158C00A3C839 /* AnimalFlappers.app */,
+				FCA92BA1219E17CC00A3C839 /* AnimalFlappersWK.app */,
+				FCA92BAD219E17CE00A3C839 /* AnimalFlappersWK Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +145,29 @@
 			path = AnimalFlappers;
 			sourceTree = "<group>";
 		};
+		FCA92BA2219E17CC00A3C839 /* AnimalFlappersWK */ = {
+			isa = PBXGroup;
+			children = (
+				FCA92BA3219E17CC00A3C839 /* Interface.storyboard */,
+				FCA92BA6219E17CD00A3C839 /* Assets.xcassets */,
+				FCA92BA8219E17CD00A3C839 /* Info.plist */,
+			);
+			path = AnimalFlappersWK;
+			sourceTree = "<group>";
+		};
+		FCA92BB1219E17CE00A3C839 /* AnimalFlappersWK Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FCA92BB2219E17CE00A3C839 /* InterfaceController.swift */,
+				FCA92BB4219E17CE00A3C839 /* ExtensionDelegate.swift */,
+				FCA92BB6219E17CE00A3C839 /* NotificationController.swift */,
+				FCA92BB8219E17CE00A3C839 /* Assets.xcassets */,
+				FCA92BBA219E17CE00A3C839 /* Info.plist */,
+				FCA92BBB219E17CE00A3C839 /* PushNotificationPayload.apns */,
+			);
+			path = "AnimalFlappersWK Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,15 +178,51 @@
 				FCA92B80219E158C00A3C839 /* Sources */,
 				FCA92B81219E158C00A3C839 /* Frameworks */,
 				FCA92B82219E158C00A3C839 /* Resources */,
+				FCA92BC6219E17CE00A3C839 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FCA92BBD219E17CE00A3C839 /* PBXTargetDependency */,
 			);
 			name = AnimalFlappers;
 			productName = AnimalFlappers;
 			productReference = FCA92B84219E158C00A3C839 /* AnimalFlappers.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FCA92BA0219E17CC00A3C839 /* AnimalFlappersWK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCA92BC3219E17CE00A3C839 /* Build configuration list for PBXNativeTarget "AnimalFlappersWK" */;
+			buildPhases = (
+				FCA92B9F219E17CC00A3C839 /* Resources */,
+				FCA92BC2219E17CE00A3C839 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCA92BB0219E17CE00A3C839 /* PBXTargetDependency */,
+			);
+			name = AnimalFlappersWK;
+			productName = AnimalFlappersWK;
+			productReference = FCA92BA1219E17CC00A3C839 /* AnimalFlappersWK.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		FCA92BAC219E17CE00A3C839 /* AnimalFlappersWK Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCA92BBF219E17CE00A3C839 /* Build configuration list for PBXNativeTarget "AnimalFlappersWK Extension" */;
+			buildPhases = (
+				FCA92BA9219E17CE00A3C839 /* Sources */,
+				FCA92BAA219E17CE00A3C839 /* Frameworks */,
+				FCA92BAB219E17CE00A3C839 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AnimalFlappersWK Extension";
+			productName = "AnimalFlappersWK Extension";
+			productReference = FCA92BAD219E17CE00A3C839 /* AnimalFlappersWK Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -104,6 +235,12 @@
 				ORGANIZATIONNAME = GreyCodeGroup;
 				TargetAttributes = {
 					FCA92B83219E158C00A3C839 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					FCA92BA0219E17CC00A3C839 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					FCA92BAC219E17CE00A3C839 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
@@ -122,6 +259,8 @@
 			projectRoot = "";
 			targets = (
 				FCA92B83219E158C00A3C839 /* AnimalFlappers */,
+				FCA92BA0219E17CC00A3C839 /* AnimalFlappersWK */,
+				FCA92BAC219E17CE00A3C839 /* AnimalFlappersWK Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -139,6 +278,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCA92B9F219E17CC00A3C839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA92BA7219E17CD00A3C839 /* Assets.xcassets in Resources */,
+				FCA92BA5219E17CC00A3C839 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA92BAB219E17CE00A3C839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA92BB9219E17CE00A3C839 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -152,7 +308,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCA92BA9219E17CE00A3C839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA92BB7219E17CE00A3C839 /* NotificationController.swift in Sources */,
+				FCA92BB5219E17CE00A3C839 /* ExtensionDelegate.swift in Sources */,
+				FCA92BB3219E17CE00A3C839 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCA92BB0219E17CE00A3C839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCA92BAC219E17CE00A3C839 /* AnimalFlappersWK Extension */;
+			targetProxy = FCA92BAF219E17CE00A3C839 /* PBXContainerItemProxy */;
+		};
+		FCA92BBD219E17CE00A3C839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCA92BA0219E17CC00A3C839 /* AnimalFlappersWK */;
+			targetProxy = FCA92BBC219E17CE00A3C839 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FCA92B91219E158C00A3C839 /* Main.storyboard */ = {
@@ -169,6 +348,14 @@
 				FCA92B97219E158D00A3C839 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FCA92BA3219E17CC00A3C839 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCA92BA4219E17CC00A3C839 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -326,6 +513,88 @@
 			};
 			name = Release;
 		};
+		FCA92BC0219E17CE00A3C839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W28JC3BNH3;
+				INFOPLIST_FILE = "AnimalFlappersWK Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.GreyCodeGroup.AnimalFlappers.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		FCA92BC1219E17CE00A3C839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W28JC3BNH3;
+				INFOPLIST_FILE = "AnimalFlappersWK Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.GreyCodeGroup.AnimalFlappers.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		FCA92BC4219E17CE00A3C839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W28JC3BNH3;
+				IBSC_MODULE = AnimalFlappersWK_Extension;
+				INFOPLIST_FILE = AnimalFlappersWK/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = me.GreyCodeGroup.AnimalFlappers.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		FCA92BC5219E17CE00A3C839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W28JC3BNH3;
+				IBSC_MODULE = AnimalFlappersWK_Extension;
+				INFOPLIST_FILE = AnimalFlappersWK/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = me.GreyCodeGroup.AnimalFlappers.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -343,6 +612,24 @@
 			buildConfigurations = (
 				FCA92B9D219E158D00A3C839 /* Debug */,
 				FCA92B9E219E158D00A3C839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCA92BBF219E17CE00A3C839 /* Build configuration list for PBXNativeTarget "AnimalFlappersWK Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCA92BC0219E17CE00A3C839 /* Debug */,
+				FCA92BC1219E17CE00A3C839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCA92BC3219E17CE00A3C839 /* Build configuration list for PBXNativeTarget "AnimalFlappersWK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCA92BC4219E17CE00A3C839 /* Debug */,
+				FCA92BC5219E17CE00A3C839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
