@@ -23,6 +23,7 @@
 		FCA92BB7219E17CE00A3C839 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92BB6219E17CE00A3C839 /* NotificationController.swift */; };
 		FCA92BB9219E17CE00A3C839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92BB8219E17CE00A3C839 /* Assets.xcassets */; };
 		FCA92BBE219E17CE00A3C839 /* AnimalFlappersWK.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FCA92BA1219E17CC00A3C839 /* AnimalFlappersWK.app */; };
+		FCA92BCC219F22D700A3C839 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92BCB219F22D700A3C839 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		FCA92BB8219E17CE00A3C839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCA92BBA219E17CE00A3C839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCA92BBB219E17CE00A3C839 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		FCA92BCB219F22D700A3C839 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,14 +134,11 @@
 		FCA92B86219E158C00A3C839 /* AnimalFlappers */ = {
 			isa = PBXGroup;
 			children = (
-				FCA92B87219E158C00A3C839 /* AppDelegate.swift */,
-				FCA92B89219E158C00A3C839 /* GameScene.sks */,
-				FCA92B8B219E158C00A3C839 /* Actions.sks */,
-				FCA92B8D219E158C00A3C839 /* GameScene.swift */,
-				FCA92B8F219E158C00A3C839 /* GameViewController.swift */,
-				FCA92B91219E158C00A3C839 /* Main.storyboard */,
+				FCA92BCA219F227800A3C839 /* Storyboards */,
+				FCA92BC9219F221B00A3C839 /* SpriteKit  */,
+				FCA92BC8219F221300A3C839 /* View Controllers */,
+				FCA92BC7219F21EA00A3C839 /* Classes */,
 				FCA92B94219E158D00A3C839 /* Assets.xcassets */,
-				FCA92B96219E158D00A3C839 /* LaunchScreen.storyboard */,
 				FCA92B99219E158D00A3C839 /* Info.plist */,
 			);
 			path = AnimalFlappers;
@@ -166,6 +165,42 @@
 				FCA92BBB219E17CE00A3C839 /* PushNotificationPayload.apns */,
 			);
 			path = "AnimalFlappersWK Extension";
+			sourceTree = "<group>";
+		};
+		FCA92BC7219F21EA00A3C839 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FCA92B87219E158C00A3C839 /* AppDelegate.swift */,
+				FCA92B8D219E158C00A3C839 /* GameScene.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FCA92BC8219F221300A3C839 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FCA92B8F219E158C00A3C839 /* GameViewController.swift */,
+				FCA92BCB219F22D700A3C839 /* HomeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FCA92BC9219F221B00A3C839 /* SpriteKit  */ = {
+			isa = PBXGroup;
+			children = (
+				FCA92B89219E158C00A3C839 /* GameScene.sks */,
+				FCA92B8B219E158C00A3C839 /* Actions.sks */,
+			);
+			path = "SpriteKit ";
+			sourceTree = "<group>";
+		};
+		FCA92BCA219F227800A3C839 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FCA92B96219E158D00A3C839 /* LaunchScreen.storyboard */,
+				FCA92B91219E158C00A3C839 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +340,7 @@
 				FCA92B8E219E158C00A3C839 /* GameScene.swift in Sources */,
 				FCA92B90219E158C00A3C839 /* GameViewController.swift in Sources */,
 				FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */,
+				FCA92BCC219F22D700A3C839 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

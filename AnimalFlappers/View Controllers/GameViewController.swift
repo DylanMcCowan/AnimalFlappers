@@ -11,6 +11,9 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    
+    @IBOutlet var btnQuit : UIButton!
+    @IBOutlet var skView : SKView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,7 @@ class GameViewController: UIViewController {
                 sceneNode.scaleMode = .aspectFill
                 
                 // Present the scene
-                if let view = self.view as! SKView? {
+                if let view = skView {
                     view.presentScene(sceneNode)
                     
                     view.ignoresSiblingOrder = true
@@ -43,7 +46,7 @@ class GameViewController: UIViewController {
     }
 
     override var shouldAutorotate: Bool {
-        return true
+        return false
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
