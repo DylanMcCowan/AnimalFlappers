@@ -32,6 +32,9 @@
                                 <state key="normal" title="Start Game">
                                     <color key="titleColor" red="1" green="0.097630650240000005" blue="0.69955441190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="edO-8x-5fN" kind="presentation" id="FRu-Ur-YAN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Animal Flappers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8I-yz-uaU">
                                 <rect key="frame" x="32" y="44" width="310" height="55"/>
@@ -147,7 +150,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Quit"/>
                                 <connections>
-                                    <segue destination="4Wo-r8-iGe" kind="unwind" unwindAction="unwindToHomeViewControllerWithSender:" id="LQk-vI-Xdc"/>
+                                    <segue destination="4Wo-r8-iGe" kind="unwind" unwindAction="unwindToHomeViewControllerWithSender:" id="Dzx-S6-tgn"/>
                                 </connections>
                             </button>
                         </subviews>

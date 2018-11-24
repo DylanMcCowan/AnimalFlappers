@@ -25,18 +25,15 @@ class GameViewController: UIViewController {
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
                 
-                // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
-                
-                // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
+                // Fit to the size of the SKView size which is set
+                sceneNode.scaleMode = .resizeFill
                 
                 // Present the scene
                 if let view = skView {
                     view.presentScene(sceneNode)
                     
-                    view.ignoresSiblingOrder = true
+                    //Allow us to place objects irrespective of their orders
+                    view.ignoresSiblingOrder = false
                     
                     view.showsFPS = true
                     view.showsNodeCount = true
