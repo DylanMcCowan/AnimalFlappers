@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC2545DC21C1858D004B1588 /* ChooseAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2545DB21C1858D004B1588 /* ChooseAnimalViewController.swift */; };
+		FC2545EA21C19742004B1588 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2545E921C19742004B1588 /* SpriteKit.framework */; };
+		FC2545EF21C1978A004B1588 /* eagle-1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2545EB21C19789004B1588 /* eagle-1.png */; };
+		FC2545F021C1978A004B1588 /* browncow.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2545EC21C19789004B1588 /* browncow.png */; };
+		FC2545F121C1978A004B1588 /* cat-1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2545ED21C1978A004B1588 /* cat-1.png */; };
+		FC2545F221C1978A004B1588 /* bird1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2545EE21C1978A004B1588 /* bird1.png */; };
+		FC2545F921C19DC2004B1588 /* jump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F421C19DC1004B1588 /* jump.mp3 */; };
+		FC2545FB21C19DC2004B1588 /* GameBGMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F621C19DC1004B1588 /* GameBGMusic.mp3 */; };
+		FC2545FC21C19DC2004B1588 /* powerupGained.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F721C19DC1004B1588 /* powerupGained.mp3 */; };
+		FC2545FD21C19DC2004B1588 /* die.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F821C19DC1004B1588 /* die.mp3 */; };
 		FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */; };
 		FC51FEF921A9C8F7002CB2A4 /* Animals.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */; };
 		FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92B87219E158C00A3C839 /* AppDelegate.swift */; };
@@ -72,6 +82,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FC2545DB21C1858D004B1588 /* ChooseAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnimalViewController.swift; sourceTree = "<group>"; };
+		FC2545E921C19742004B1588 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		FC2545EB21C19789004B1588 /* eagle-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eagle-1.png"; sourceTree = "<group>"; };
+		FC2545EC21C19789004B1588 /* browncow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = browncow.png; sourceTree = "<group>"; };
+		FC2545ED21C1978A004B1588 /* cat-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat-1.png"; sourceTree = "<group>"; };
+		FC2545EE21C1978A004B1588 /* bird1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird1.png; sourceTree = "<group>"; };
+		FC2545F421C19DC1004B1588 /* jump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jump.mp3; sourceTree = "<group>"; };
+		FC2545F621C19DC1004B1588 /* GameBGMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameBGMusic.mp3; sourceTree = "<group>"; };
+		FC2545F721C19DC1004B1588 /* powerupGained.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = powerupGained.mp3; sourceTree = "<group>"; };
+		FC2545F821C19DC1004B1588 /* die.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = die.mp3; sourceTree = "<group>"; };
 		FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Animals.atlas; sourceTree = "<group>"; };
 		FCA92B84219E158C00A3C839 /* AnimalFlappers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2545EA21C19742004B1588 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +138,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC2545DF21C194BB004B1588 /* PreviewImages */ = {
+			isa = PBXGroup;
+			children = (
+				FC2545EE21C1978A004B1588 /* bird1.png */,
+				FC2545EC21C19789004B1588 /* browncow.png */,
+				FC2545ED21C1978A004B1588 /* cat-1.png */,
+				FC2545EB21C19789004B1588 /* eagle-1.png */,
+			);
+			path = PreviewImages;
+			sourceTree = "<group>";
+		};
+		FC2545E821C19742004B1588 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC2545E921C19742004B1588 /* SpriteKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC2545F321C19DA9004B1588 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FC2545F821C19DC1004B1588 /* die.mp3 */,
+				FC2545F621C19DC1004B1588 /* GameBGMusic.mp3 */,
+				FC2545F421C19DC1004B1588 /* jump.mp3 */,
+				FC2545F721C19DC1004B1588 /* powerupGained.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		FCA92B7B219E158C00A3C839 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +175,7 @@
 				FCA92BA2219E17CC00A3C839 /* AnimalFlappersWK */,
 				FCA92BB1219E17CE00A3C839 /* AnimalFlappersWK Extension */,
 				FCA92B85219E158C00A3C839 /* Products */,
+				FC2545E821C19742004B1588 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +192,8 @@
 		FCA92B86219E158C00A3C839 /* AnimalFlappers */ = {
 			isa = PBXGroup;
 			children = (
+				FC2545F321C19DA9004B1588 /* Sounds */,
+				FC2545DF21C194BB004B1588 /* PreviewImages */,
 				FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */,
 				FCA92BCA219F227800A3C839 /* Storyboards */,
 				FCA92BC9219F221B00A3C839 /* SpriteKit  */,
@@ -190,6 +244,7 @@
 				FCA92B8F219E158C00A3C839 /* GameViewController.swift */,
 				FCA92BCB219F22D700A3C839 /* HomeViewController.swift */,
 				FCF897C921BC3A2100FECD93 /* LevelSelectorViewController.swift */,
+				FC2545DB21C1858D004B1588 /* ChooseAnimalViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -314,11 +369,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2545FD21C19DC2004B1588 /* die.mp3 in Resources */,
+				FC2545F221C1978A004B1588 /* bird1.png in Resources */,
+				FC2545F021C1978A004B1588 /* browncow.png in Resources */,
 				FCA92B93219E158C00A3C839 /* Main.storyboard in Resources */,
+				FC2545F921C19DC2004B1588 /* jump.mp3 in Resources */,
+				FC2545FC21C19DC2004B1588 /* powerupGained.mp3 in Resources */,
+				FC2545EF21C1978A004B1588 /* eagle-1.png in Resources */,
 				FC51FEF921A9C8F7002CB2A4 /* Animals.atlas in Resources */,
 				FCA92B8A219E158C00A3C839 /* GameScene.sks in Resources */,
 				FCA92B95219E158D00A3C839 /* Assets.xcassets in Resources */,
 				FCA92B98219E158D00A3C839 /* LaunchScreen.storyboard in Resources */,
+				FC2545F121C1978A004B1588 /* cat-1.png in Resources */,
+				FC2545FB21C19DC2004B1588 /* GameBGMusic.mp3 in Resources */,
 				FCA92B8C219E158C00A3C839 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +414,7 @@
 				FCA92B90219E158C00A3C839 /* GameViewController.swift in Sources */,
 				FCF897CA21BC3A2100FECD93 /* LevelSelectorViewController.swift in Sources */,
 				FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */,
+				FC2545DC21C1858D004B1588 /* ChooseAnimalViewController.swift in Sources */,
 				FCA92BCC219F22D700A3C839 /* HomeViewController.swift in Sources */,
 				FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */,
 			);

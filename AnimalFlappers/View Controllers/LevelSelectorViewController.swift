@@ -111,6 +111,7 @@ class LevelSelectorViewController: UIViewController, MKMapViewDelegate, UIPicker
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         lblLevelSelected.text = (view.annotation?.title)!
+        btnSelectLevel.isHidden = false
     }
     
     // MARK: - PickerView methods
@@ -132,10 +133,15 @@ class LevelSelectorViewController: UIViewController, MKMapViewDelegate, UIPicker
         focusOnSelectedLevelLocation(location: getLevelLocationFromLevelNumber(levelNum: row))
     }
     
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        lblLevelSelected.text = (view.annotation?.title)!
+        btnSelectLevel.isHidden = true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         levelMapView.delegate = self
+        btnSelectLevel.isHidden = true
         drawConnectingLines()
         populateLevelLocations()
         focusOnSelectedLevelLocation(location: MAP_LOCATIONS[0])
@@ -144,7 +150,6 @@ class LevelSelectorViewController: UIViewController, MKMapViewDelegate, UIPicker
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 

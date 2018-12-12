@@ -13,8 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var USER_ANIMAL_SELECTION = ""
-
+    var USER_ANIMAL_SELECTION = AnimalNames.BIRD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

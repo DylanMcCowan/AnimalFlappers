@@ -19,7 +19,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //Keep track of if the player has died
     var isDead = Bool(false)
     
-    //Sounds?
+    //Sounds
+    let powerupSound = SKAction.playSoundFileNamed("powerupGained.mp3", waitForCompletion: false)
+    let jumpSound = SKAction.playSoundFileNamed("jump.mp3", waitForCompletion: false)
+    let gameOverSound = SKAction.playSoundFileNamed("die.mp3", waitForCompletion: false)
+
+
     
     //Player Variables
     var score = Int(0)
@@ -31,14 +36,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var logoImg = SKSpriteNode()
     var wallPair = SKNode()
     var moveAndRemove = SKAction()
-    var userAnimalSelection = ""
-    
     
     //Animal Texture Atlas
     let animalAtlas = SKTextureAtlas(named:"Animals")
     var animalSprites = Array<Any>()
     var animalNode = SKSpriteNode()
     var animalRepeatingAction  = SKAction()
+    
+    //AnimalTextureNames
+   static let birdTextureNames = ["bird1", "bird2", "bird3", "bird4"]
+    static let catTextureNames = ["cat-1", "cat-2", "cat-3"]
+    static let eagleTextureNames = ["eagle-1", "eagle-2", "eagle-3", "eagle-4"]
+    static let cowTextureNames = ["browncow"]
+    static let animals = ["Bird", "Eagle", "Cat", "Cow"]
     
     
     /* END GAME VARIABLE DECLARATION */
@@ -82,18 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         /* ANIMAL SPRITES */
-        //TODO - Replace hardcoded value with variable based on player selection
-        var selectedAnimalTextureArray = [SKTexture]()
-        selectedAnimalTextureArray.append(animalAtlas.textureNamed("cat-1"))
-        selectedAnimalTextureArray.append(animalAtlas.textureNamed("cat-2"))
-
-        selectedAnimalTextureArray.append(animalAtlas.textureNamed("cat-3"))
-
-        
-        //animalSprites.append()
-        animalSprites = selectedAnimalTextureArray
-       // animalSprites.append(animalAtlas.textureNamed("cat-3"))
-        //animalSprites.append(animalAtlas.textureNamed("eagle-4"))
+        animalSprites = getSelectedAnimalTextureArray(named: del.USER_ANIMAL_SELECTION)
         
         //Handle the animals via a node and add it to the GameScene
         self.animalNode = createAnimalNode()
@@ -122,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //This loop will create the background so it looks like it is continuously scrolling along
         for i in 0..<2
         {
-            let background = SKSpriteNode(imageNamed: "bg")
+            let background = SKSpriteNode(imageNamed: "Backgroundpt1")
             background.anchorPoint = CGPoint.init(x: 0, y: 0)
             background.position = CGPoint(x:CGFloat(i) * self.frame.width, y:0)
             background.name = "background"
@@ -227,6 +226,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         pauseBtn.texture = SKTexture(imageNamed: "pause")
                     }
                 }
+                run(jumpSound)
             }
         }
         
@@ -258,17 +258,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }))
             if isDead == false{
                 isDead = true
+                run(gameOverSound)
                 showRestartBtn()
                 pauseBtn.removeFromParent()
                 self.animalNode.removeAllActions()
             }
         } else if firstBody.categoryBitMask == CollisionBitMask.ANIMAL_CATEGORY && secondBody.categoryBitMask == CollisionBitMask.POWERUP_CATEGORY {
-          //  run(coinSound)
+            run(powerupSound)
             score += 1
             scoreLbl.text = "\(score)"
             secondBody.node?.removeFromParent()
         } else if firstBody.categoryBitMask == CollisionBitMask.POWERUP_CATEGORY && secondBody.categoryBitMask == CollisionBitMask.ANIMAL_CATEGORY{
-            //run(coinSound)
+            run(powerupSound)
             score += 1
             scoreLbl.text = "\(score)"
             firstBody.node?.removeFromParent()

@@ -14,7 +14,7 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="HomeViewController" customModule="AnimalFlappers" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -51,10 +51,12 @@
                                 <state key="normal" title="Choose Animal">
                                     <color key="titleColor" red="1" green="0.097630650240000005" blue="0.69955441190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="C5I-2A-ihR" kind="presentation" id="lbP-Ir-jEB"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.84502495659999999" green="0.98082139759999998" blue="0.70765516490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.84502495659999999" green="0.98082139759999998" blue="0.70765516490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.84145945310592651" green="0.99935930967330933" blue="0.9969448447227478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <connections>
@@ -67,20 +69,61 @@
             </objects>
             <point key="canvasLocation" x="270" y="29"/>
         </scene>
-        <!--View Controller-->
+        <!--Choose Animal View Controller-->
         <scene sceneID="N3m-qy-tVO">
             <objects>
-                <viewController id="C5I-2A-ihR" sceneMemberID="viewController">
+                <viewController id="C5I-2A-ihR" customClass="ChooseAnimalViewController" customModule="AnimalFlappers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XHH-yk-vP2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8GG-9H-b3W">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Select Your Animal" id="IpZ-JU-JaC">
+                                        <barButtonItem key="leftBarButtonItem" title="Close" id="nAQ-cz-fYi">
+                                            <connections>
+                                                <segue destination="9rc-Cg-Vs5" kind="unwind" unwindAction="unwindToHomeViewControllerWithSender:" id="3Nc-Tj-dCY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQ5-Ow-tuT">
+                                <rect key="frame" x="0.0" y="88" width="375" height="406"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGQ-tR-uwP">
+                                <rect key="frame" x="0.0" y="492" width="375" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="C5I-2A-ihR" id="6Lh-Ko-7yx"/>
+                                    <outlet property="delegate" destination="C5I-2A-ihR" id="zxA-S6-HuE"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7z-oY-qbG">
+                                <rect key="frame" x="16" y="700" width="343" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose This Animal To Play As"/>
+                                <connections>
+                                    <action selector="updateSelectedAnimal" destination="C5I-2A-ihR" eventType="touchUpInside" id="vDJ-kg-qM1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84145945310592651" green="0.99935930967330933" blue="0.9969448447227478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="CXQ-Td-rgL"/>
                     </view>
+                    <connections>
+                        <outlet property="btnSelectAnimal" destination="v7z-oY-qbG" id="NS7-N2-dxq"/>
+                        <outlet property="ivAnimalPreview" destination="mQ5-Ow-tuT" id="bX4-Dp-4KA"/>
+                        <outlet property="pvAnimalSelector" destination="EGQ-tR-uwP" id="TnT-27-Jw1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SzI-B5-ZHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9rc-Cg-Vs5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="802"/>
+            <point key="canvasLocation" x="1024.8" y="801.72413793103453"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="l33-qn-kGD">
@@ -98,7 +141,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.88636994410000003" green="1" blue="0.89669584099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.84145945310592651" green="0.99935930967330933" blue="0.9969448447227478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="gv4-IJ-45a"/>
                     </view>
                 </viewController>
@@ -161,7 +204,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.84145945310592651" green="0.99935930967330933" blue="0.9969448447227478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="qn6-lA-RVL"/>
                     </view>
                     <connections>
@@ -185,19 +228,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9FL-SB-tNF">
-                                <rect key="frame" x="0.0" y="44" width="375" height="692"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </skView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lc-25-xc1">
-                                <rect key="frame" x="172" y="748" width="30" height="30"/>
+                                <rect key="frame" x="131" y="744" width="112" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Quit"/>
+                                <color key="backgroundColor" red="0.99935930967330933" green="0.28867666140823256" blue="0.30135924289142202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Quit">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="4Wo-r8-iGe" kind="unwind" unwindAction="unwindToHomeViewControllerWithSender:" id="Dzx-S6-tgn"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.84145945310592651" green="0.99935930967330933" blue="0.9969448447227478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="7Jl-hu-QcG"/>
                     </view>
                     <connections>
@@ -208,7 +255,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBK-uw-cWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4Wo-r8-iGe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1850" y="29"/>
+            <point key="canvasLocation" x="1848.8" y="28.817733990147783"/>
         </scene>
     </scenes>
 </document>

@@ -17,15 +17,56 @@ struct CollisionBitMask {
    // static let OTHER_CATEGORY:UInt32 = 0x1 << 4
 }
 
+enum AnimalNames {
+   case BIRD
+   case EAGLE
+   case COW
+   case CAT
+    
+}
+
 extension GameScene {
     
-    
+    func getSelectedAnimalTextureArray(named : AnimalNames) -> [SKTexture]{
+        
+        let animalAtlas = SKTextureAtlas(named:"Animals")
+        var sprites = [SKTexture]()
+        
+        switch named{
+        
+        case .BIRD:
+            for texName in GameScene.birdTextureNames{
+                sprites.append(animalAtlas.textureNamed(texName))
+            }
+            break
+        case .EAGLE:
+            for texName in GameScene.eagleTextureNames{
+                sprites.append(animalAtlas.textureNamed(texName))
+            }
+            break
+        case .COW:
+            for texName in GameScene.cowTextureNames{
+                 sprites.append(animalAtlas.textureNamed(texName))
+            }
+        case .CAT:
+            for texName in GameScene.catTextureNames{
+                sprites.append(animalAtlas.textureNamed(texName))
+            }
+            break
+        default:
+            sprites.append(animalAtlas.textureNamed("bird-1"))
+            break
+        }
+        
+        return sprites
+    }
     
     func createAnimalNode() -> SKSpriteNode {
         
         //Load an animal texture from the selection
-        //TODO It should be based on player animal SELECTION
-        let animalNode = SKSpriteNode(texture: SKTextureAtlas(named:"Animals").textureNamed(userAnimalSelection))
+        let del = UIApplication.shared.delegate as! AppDelegate
+      
+        let animalNode = SKSpriteNode(texture: getSelectedAnimalTextureArray(named: del.USER_ANIMAL_SELECTION)[0])
         animalNode.size = CGSize(width: 50, height: 50)
         animalNode.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         
@@ -132,7 +173,7 @@ extension GameScene {
     
     private func createPowerUpNode() -> SKNode {
         // 1
-        let powerUpNode = SKSpriteNode(imageNamed: "flower")
+        let powerUpNode = SKSpriteNode(imageNamed: "apple")
         powerUpNode.size = CGSize(width: 40, height: 40)
         powerUpNode.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2)
         powerUpNode.physicsBody = SKPhysicsBody(rectangleOf: powerUpNode.size)
