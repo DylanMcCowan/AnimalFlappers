@@ -1,5 +1,5 @@
 //
-//  CoreElements.swift
+//  GameLogic.swift
 //  AnimalFlappers
 //
 //  Created by Dylan McCowan on 2018-11-24.
@@ -25,7 +25,7 @@ extension GameScene {
         
         //Load an animal texture from the selection
         //TODO It should be based on player animal SELECTION
-        let animalNode = SKSpriteNode(texture: SKTextureAtlas(named:"Animals").textureNamed("bird1"))
+        let animalNode = SKSpriteNode(texture: SKTextureAtlas(named:"Animals").textureNamed(userAnimalSelection))
         animalNode.size = CGSize(width: 50, height: 50)
         animalNode.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         
@@ -39,7 +39,6 @@ extension GameScene {
         //3
         animalNode.physicsBody?.categoryBitMask = CollisionBitMask.ANIMAL_CATEGORY
         animalNode.physicsBody?.collisionBitMask = CollisionBitMask.OBSTACLE_CATEGORY | CollisionBitMask.GROUND_CATEGORY
-        
         animalNode.physicsBody?.contactTestBitMask = CollisionBitMask.OBSTACLE_CATEGORY | CollisionBitMask.POWERUP_CATEGORY | CollisionBitMask.GROUND_CATEGORY
         
         
@@ -51,8 +50,8 @@ extension GameScene {
     }
     
     //1
-    func createRestartBtn() {
-        restartBtn = SKSpriteNode(imageNamed: "restart")
+    func showRestartBtn() {
+        restartBtn = SKSpriteNode(imageNamed: "restartButtonIcon")
         restartBtn.size = CGSize(width:100, height:100)
         restartBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         restartBtn.zPosition = 6
@@ -75,7 +74,7 @@ extension GameScene {
         scoreLbl.text = "\(score)"
         scoreLbl.zPosition = 5
         scoreLbl.fontSize = 50
-        scoreLbl.fontName = "HelveticaNeue-Bold"
+        scoreLbl.fontName = "Copperplate"
         
         let scoreBg = SKShapeNode()
         scoreBg.position = CGPoint(x: 0, y: 0)
@@ -88,6 +87,8 @@ extension GameScene {
         return scoreLbl
     }
     //4
+    
+    /*
     func createHighscoreLabel() -> SKLabelNode {
         let highscoreLbl = SKLabelNode()
         highscoreLbl.position = CGPoint(x: self.frame.width - 80, y: self.frame.height - 22)
@@ -98,10 +99,13 @@ extension GameScene {
         }
         highscoreLbl.zPosition = 5
         highscoreLbl.fontSize = 15
-        highscoreLbl.fontName = "Helvetica-Bold"
+        highscoreLbl.fontName = "Copperplate"
         return highscoreLbl
     }
+    */
+    
     //5
+    /*
     func createLogo() {
         logoImg = SKSpriteNode()
         logoImg = SKSpriteNode(imageNamed: "logo")
@@ -111,21 +115,22 @@ extension GameScene {
         self.addChild(logoImg)
         logoImg.run(SKAction.scale(to: 1.0, duration: 0.3))
     }
+    */
+    
     //6
-    func createTaptoplayLabel() -> SKLabelNode {
-        let taptoplayLbl = SKLabelNode()
-        taptoplayLbl.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
-        taptoplayLbl.text = "Tap anywhere to play"
-        taptoplayLbl.fontColor = UIColor(red: 63/255, green: 79/255, blue: 145/255, alpha: 1.0)
-        taptoplayLbl.zPosition = 5
-        taptoplayLbl.fontSize = 20
-        taptoplayLbl.fontName = "HelveticaNeue"
-        return taptoplayLbl
+    func showGameStartLabel() -> SKLabelNode {
+        let gs = SKLabelNode()
+        gs.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 50)
+        gs.text = "Tap To Begin The Game!"
+        gs.fontColor = UIColor(red: 63/255, green: 79/255, blue: 145/255, alpha: 1.0)
+        gs.zPosition = 5
+        gs.fontSize = 25
+        gs.fontName = "Copperplate-Bold"
+        return gs
     }
     
     
-    
-    func createWalls() -> SKNode  {
+    private func createPowerUpNode() -> SKNode {
         // 1
         let powerUpNode = SKSpriteNode(imageNamed: "flower")
         powerUpNode.size = CGSize(width: 40, height: 40)
@@ -137,40 +142,55 @@ extension GameScene {
         powerUpNode.physicsBody?.collisionBitMask = 0
         powerUpNode.physicsBody?.contactTestBitMask = CollisionBitMask.ANIMAL_CATEGORY
         powerUpNode.color = SKColor.blue
-        // 2
-        wallPair = SKNode()
-        wallPair.name = "wallPair"
         
-        let topWall = SKSpriteNode(imageNamed: "piller")
-        let btmWall = SKSpriteNode(imageNamed: "piller")
+        return powerUpNode
+    }
+    
+    private func createWallNode() -> SKNode{
+        
+        let wall = SKSpriteNode(imageNamed: "piller")
+        
+        wall.physicsBody = SKPhysicsBody(rectangleOf: wall.size)
+        wall.physicsBody?.categoryBitMask = CollisionBitMask.OBSTACLE_CATEGORY
+        wall.physicsBody?.collisionBitMask = CollisionBitMask.ANIMAL_CATEGORY
+        wall.physicsBody?.contactTestBitMask = CollisionBitMask.ANIMAL_CATEGORY
+        wall.physicsBody?.isDynamic = false
+        wall.physicsBody?.affectedByGravity = false
+        
+        return wall
+    }
+    
+    private func createWallPairNode() -> SKNode{
+       
+        let btmWall = createWallNode()
+        let topWall = createWallNode()
         
         topWall.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 + 420)
         btmWall.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 - 420)
         
         topWall.setScale(0.5)
         btmWall.setScale(0.5)
-        
-        topWall.physicsBody = SKPhysicsBody(rectangleOf: topWall.size)
-        topWall.physicsBody?.categoryBitMask = CollisionBitMask.OBSTACLE_CATEGORY
-        topWall.physicsBody?.collisionBitMask = CollisionBitMask.ANIMAL_CATEGORY
-        topWall.physicsBody?.contactTestBitMask = CollisionBitMask.ANIMAL_CATEGORY
-        topWall.physicsBody?.isDynamic = false
-        topWall.physicsBody?.affectedByGravity = false
-        
-        btmWall.physicsBody = SKPhysicsBody(rectangleOf: btmWall.size)
-        btmWall.physicsBody?.categoryBitMask = CollisionBitMask.OBSTACLE_CATEGORY
-        btmWall.physicsBody?.collisionBitMask = CollisionBitMask.ANIMAL_CATEGORY
-        btmWall.physicsBody?.contactTestBitMask = CollisionBitMask.ANIMAL_CATEGORY
-        btmWall.physicsBody?.isDynamic = false
-        btmWall.physicsBody?.affectedByGravity = false
+
         
         topWall.zRotation = CGFloat(Double.pi)
         
-        wallPair.addChild(topWall)
-        wallPair.addChild(btmWall)
+        let pair = SKNode()
+        pair.addChild(btmWall)
+        pair.addChild(topWall)
         
+        return pair
+    }
+    
+    func createWalls() -> SKNode  {
+       
+        
+        let powerUpNode = createPowerUpNode()
+
+        wallPair = createWallPairNode()
+        wallPair.name = "wallPair"
         wallPair.zPosition = 1
-        // 3
+  
+
         let randomPosition = random(min: -200, max: 200)
         wallPair.position.y = wallPair.position.y +  randomPosition
         wallPair.addChild(powerUpNode)

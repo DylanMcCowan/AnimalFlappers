@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +34,7 @@
                                     <color key="titleColor" red="1" green="0.097630650240000005" blue="0.69955441190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="edO-8x-5fN" kind="presentation" id="FRu-Ur-YAN"/>
+                                    <segue destination="OtX-YL-3Dd" kind="presentation" id="fWn-mG-aTl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Animal Flappers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8I-yz-uaU">
@@ -79,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SzI-B5-ZHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="29"/>
+            <point key="canvasLocation" x="1025" y="802"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="l33-qn-kGD">
@@ -103,12 +104,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHu-3j-3Ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-492" y="720"/>
+            <point key="canvasLocation" x="270" y="802"/>
         </scene>
-        <!--View Controller-->
+        <!--Level Selector View Controller-->
         <scene sceneID="Mua-UO-IoT">
             <objects>
-                <viewController id="OtX-YL-3Dd" sceneMemberID="viewController">
+                <viewController id="OtX-YL-3Dd" customClass="LevelSelectorViewController" customModule="AnimalFlappers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ul6-xh-IrS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,21 +118,63 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Level Selection" id="KKw-3R-Qly"/>
+                                    <navigationItem title="Level Selection" id="KKw-3R-Qly">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="v0Y-g4-NdZ">
+                                            <connections>
+                                                <segue destination="9Qv-no-KZs" kind="unwind" unwindAction="unwindToHomeViewControllerWithSender:" id="48x-Yr-wCl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wHs-qa-29k">
                                 <rect key="frame" x="0.0" y="88" width="375" height="654"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="OtX-YL-3Dd" id="LJe-DK-4gJ"/>
+                                </connections>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LevelSelected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zN7-NO-2SF">
+                                <rect key="frame" x="16" y="750" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Xn-qp-Wzt">
+                                <rect key="frame" x="0.0" y="642" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OtX-YL-3Dd" id="x3z-Ev-bmX"/>
+                                    <outlet property="delegate" destination="OtX-YL-3Dd" id="Go3-cY-kCf"/>
+                                </connections>
+                            </pickerView>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlN-rB-Q46">
+                                <rect key="frame" x="16" y="604" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.53493244819999997" green="1" blue="0.53985001210000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="20"/>
+                                <color key="tintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
+                                <state key="normal" title="Play Level"/>
+                                <connections>
+                                    <segue destination="edO-8x-5fN" kind="presentation" id="Vl2-vO-aVo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qn6-lA-RVL"/>
                     </view>
+                    <connections>
+                        <outlet property="btnSelectLevel" destination="jlN-rB-Q46" id="xfg-ge-onk"/>
+                        <outlet property="lblLevelSelected" destination="zN7-NO-2SF" id="h8p-zD-lMz"/>
+                        <outlet property="levelMapView" destination="wHs-qa-29k" id="WtC-uI-FOx"/>
+                        <outlet property="pvLevelSelector" destination="4Xn-qp-Wzt" id="vEj-ds-nKl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Skw-Cj-0py" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9Qv-no-KZs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="269.60000000000002" y="719.70443349753702"/>
+            <point key="canvasLocation" x="1024.8" y="28.817733990147783"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="q02-Kq-LMJ">
@@ -165,7 +208,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBK-uw-cWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4Wo-r8-iGe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="720"/>
+            <point key="canvasLocation" x="1850" y="29"/>
         </scene>
     </scenes>
 </document>

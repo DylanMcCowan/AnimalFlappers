@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC51FEC921A9BF26002CB2A4 /* CoreElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51FEC821A9BF26002CB2A4 /* CoreElements.swift */; };
+		FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */; };
 		FC51FEF921A9C8F7002CB2A4 /* Animals.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */; };
 		FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92B87219E158C00A3C839 /* AppDelegate.swift */; };
 		FCA92B8A219E158C00A3C839 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B89219E158C00A3C839 /* GameScene.sks */; };
@@ -26,6 +26,7 @@
 		FCA92BB9219E17CE00A3C839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92BB8219E17CE00A3C839 /* Assets.xcassets */; };
 		FCA92BBE219E17CE00A3C839 /* AnimalFlappersWK.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FCA92BA1219E17CC00A3C839 /* AnimalFlappersWK.app */; };
 		FCA92BCC219F22D700A3C839 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92BCB219F22D700A3C839 /* HomeViewController.swift */; };
+		FCF897CA21BC3A2100FECD93 /* LevelSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF897C921BC3A2100FECD93 /* LevelSelectorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FC51FEC821A9BF26002CB2A4 /* CoreElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreElements.swift; sourceTree = "<group>"; };
+		FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Animals.atlas; sourceTree = "<group>"; };
 		FCA92B84219E158C00A3C839 /* AnimalFlappers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA92B87219E158C00A3C839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		FCA92BBA219E17CE00A3C839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCA92BBB219E17CE00A3C839 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		FCA92BCB219F22D700A3C839 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FCF897C921BC3A2100FECD93 /* LevelSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +179,7 @@
 			children = (
 				FCA92B87219E158C00A3C839 /* AppDelegate.swift */,
 				FCA92B8D219E158C00A3C839 /* GameScene.swift */,
-				FC51FEC821A9BF26002CB2A4 /* CoreElements.swift */,
+				FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -187,6 +189,7 @@
 			children = (
 				FCA92B8F219E158C00A3C839 /* GameViewController.swift */,
 				FCA92BCB219F22D700A3C839 /* HomeViewController.swift */,
+				FCF897C921BC3A2100FECD93 /* LevelSelectorViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -346,9 +349,10 @@
 			files = (
 				FCA92B8E219E158C00A3C839 /* GameScene.swift in Sources */,
 				FCA92B90219E158C00A3C839 /* GameViewController.swift in Sources */,
+				FCF897CA21BC3A2100FECD93 /* LevelSelectorViewController.swift in Sources */,
 				FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */,
 				FCA92BCC219F22D700A3C839 /* HomeViewController.swift in Sources */,
-				FC51FEC921A9BF26002CB2A4 /* CoreElements.swift in Sources */,
+				FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

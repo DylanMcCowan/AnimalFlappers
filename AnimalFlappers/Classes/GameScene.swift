@@ -25,12 +25,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var score = Int(0)
     var scoreLbl = SKLabelNode()
     var highscoreLbl = SKLabelNode()
-    var taptoplayLbl = SKLabelNode()
+    var gsLabel = SKLabelNode()
     var restartBtn = SKSpriteNode()
     var pauseBtn = SKSpriteNode()
     var logoImg = SKSpriteNode()
     var wallPair = SKNode()
     var moveAndRemove = SKAction()
+    var userAnimalSelection = ""
     
     
     //Animal Texture Atlas
@@ -46,20 +47,79 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //This function will be responsible for running the scene and updating every move call per frame
     func runScene(){
         
+        initalizeGameSceneParams()
+        initalizeGameSceneAnimals()
+        
+        /* ANIMAL ANIMATIONS */
+        createAnimalAnimations()
+        
+        //Create the Score label
+        scoreLbl = createScoreLabel()
+        self.addChild(scoreLbl)
+        
+      //  highscoreLbl = createHighscoreLabel()
+       // self.addChild(highscoreLbl)
+        //createLogo()
+        
+        
+        //Show the Game Starting Text
+        gsLabel = showGameStartLabel()
+        self.addChild(gsLabel)
+        
+    }
+    
+    private func createAnimalAnimations(){
+        
+        //Create the animation and ensure it repeats forever per frame for the selected animal 
+        let animalAnimationAction = SKAction.animate(with: self.animalSprites as! [SKTexture], timePerFrame: 0.1)
+        self.animalRepeatingAction = SKAction.repeatForever(animalAnimationAction)
+     
+    }
+    
+    private func initalizeGameSceneAnimals(){
+        
+        let del = UIApplication.shared.delegate as! AppDelegate
+        
+        
+        /* ANIMAL SPRITES */
+        //TODO - Replace hardcoded value with variable based on player selection
+        var selectedAnimalTextureArray = [SKTexture]()
+        selectedAnimalTextureArray.append(animalAtlas.textureNamed("cat-1"))
+        selectedAnimalTextureArray.append(animalAtlas.textureNamed("cat-2"))
+
+        selectedAnimalTextureArray.append(animalAtlas.textureNamed("cat-3"))
+
+        
+        //animalSprites.append()
+        animalSprites = selectedAnimalTextureArray
+       // animalSprites.append(animalAtlas.textureNamed("cat-3"))
+        //animalSprites.append(animalAtlas.textureNamed("eagle-4"))
+        
+        //Handle the animals via a node and add it to the GameScene
+        self.animalNode = createAnimalNode()
+        self.addChild(animalNode)
+        
+    }
+    
+    private func initalizeGameSceneParams(){
+        
+        
+        //COLLISION - Configure the Scene physics for collision detection
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsBody?.categoryBitMask = CollisionBitMask.GROUND_CATEGORY
         self.physicsBody?.collisionBitMask = CollisionBitMask.ANIMAL_CATEGORY
         self.physicsBody?.contactTestBitMask = CollisionBitMask.ANIMAL_CATEGORY
         self.physicsBody?.isDynamic = false
         
-        //Don't let gravity affect the animals falling off the screen
+        //Disable the animals being affected by scene gravity directly to keep them on the screen
         self.physicsBody?.affectedByGravity = false
         
+        //Specifcy that the Delegate for the physics is in this class
         self.physicsWorld.contactDelegate = self
         self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
         
-        //Create the Background for the scene
         
+        //This loop will create the background so it looks like it is continuously scrolling along
         for i in 0..<2
         {
             let background = SKSpriteNode(imageNamed: "bg")
@@ -70,60 +130,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(background)
         }
         
-        
-        /* ANIMAL SPRITES */
-        //TODO - Replace hardcoded value with variable based on player selection
-        animalSprites.append(animalAtlas.textureNamed("bird1"))
-        animalSprites.append(animalAtlas.textureNamed("bird2"))
-        animalSprites.append(animalAtlas.textureNamed("bird3"))
-        animalSprites.append(animalAtlas.textureNamed("bird4"))
-        
-        
-        self.animalNode = createAnimalNode()
-        self.addChild(animalNode)
-        
-        
-        /* ANIMAL ANIMATIONS */
-        
-        //Create the animation and ensure it repeats forever per frame
-        let animalAnimationAction = SKAction.animate(with: self.animalSprites as! [SKTexture], timePerFrame: 0.1)
-        self.animalRepeatingAction = SKAction.repeatForever(animalAnimationAction)
-        
-        scoreLbl = createScoreLabel()
-        self.addChild(scoreLbl)
-        
-        highscoreLbl = createHighscoreLabel()
-        self.addChild(highscoreLbl)
-        
-        createLogo()
-        
-        taptoplayLbl = createTaptoplayLabel()
-        self.addChild(taptoplayLbl)
-        
     }
     
+    //This method is called when the GameScene SKView is displayed on the device
     override func didMove(to view: SKView) {
+        //Run the game scene
         runScene()
     }
     
     
-    override func sceneDidLoad() {
-
-    }
+    override func sceneDidLoad() { }
+    
+    //These methods are currently not used within the game
+    func touchDown(atPoint pos : CGPoint) { }
+    
+    func touchMoved(toPoint pos : CGPoint) { }
+    
+    func touchUp(atPoint pos : CGPoint) { }
     
     
-    func touchDown(atPoint pos : CGPoint) {
-        
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-       
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-      
-    }
-    
+    //This method is designed to handle touch events within the game
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
         if isGameStarted == false{
@@ -132,11 +158,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             isGameStarted =  true
             animalNode.physicsBody?.affectedByGravity = true
             createPauseBtn()
+            
+            
             //2
             logoImg.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
                 self.logoImg.removeFromParent()
             })
-            taptoplayLbl.removeFromParent()
+            gsLabel.removeFromParent()
+            
+            
             //3
             self.animalNode.run(animalRepeatingAction)
             
@@ -147,7 +177,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(self.wallPair)
             })
             //2
-            let delay = SKAction.wait(forDuration: 1.5)
+            let delay = SKAction.wait(forDuration: 1.5 )
             let SpawnDelay = SKAction.sequence([spawn, delay])
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
             self.run(spawnDelayForever)
@@ -215,6 +245,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
+    //This method is designed to handle the Collision Detection and processing 
     func didBegin(_ contact: SKPhysicsContact) {
         let firstBody = contact.bodyA
         let secondBody = contact.bodyB
@@ -227,7 +258,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }))
             if isDead == false{
                 isDead = true
-                createRestartBtn()
+                showRestartBtn()
                 pauseBtn.removeFromParent()
                 self.animalNode.removeAllActions()
             }
