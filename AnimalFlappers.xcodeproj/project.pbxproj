@@ -35,6 +35,9 @@
 		FC25469C21C2B7CB004B1588 /* eagle-1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2545EB21C19789004B1588 /* eagle-1.png */; };
 		FC25469D21C2B7D4004B1588 /* Animals.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */; };
 		FC25469E21C2B7DE004B1588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B94219E158D00A3C839 /* Assets.xcassets */; };
+		FC2546AE21C2FF01004B1588 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546AA21C2FF00004B1588 /* HighScoreViewController.swift */; };
+		FC2546AF21C2FF01004B1588 /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546AB21C2FF01004B1588 /* HighScoreTableViewCell.swift */; };
+		FC2546B021C2FF01004B1588 /* HighScoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546AC21C2FF01004B1588 /* HighScoreObject.swift */; };
 		FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */; };
 		FC51FEF921A9C8F7002CB2A4 /* Animals.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */; };
 		FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92B87219E158C00A3C839 /* AppDelegate.swift */; };
@@ -117,6 +120,9 @@
 		FC25468621C2B615004B1588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC25468821C2B617004B1588 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC25468A21C2B617004B1588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC2546AA21C2FF00004B1588 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
+		FC2546AB21C2FF01004B1588 /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
+		FC2546AC21C2FF01004B1588 /* HighScoreObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreObject.swift; sourceTree = "<group>"; };
 		FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Animals.atlas; sourceTree = "<group>"; };
 		FCA92B84219E158C00A3C839 /* AnimalFlappers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +335,8 @@
 		FCA92BC7219F21EA00A3C839 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FC2546AB21C2FF01004B1588 /* HighScoreTableViewCell.swift */,
+				FC2546AC21C2FF01004B1588 /* HighScoreObject.swift */,
 				FCA92B87219E158C00A3C839 /* AppDelegate.swift */,
 			);
 			path = Classes;
@@ -337,6 +345,7 @@
 		FCA92BC8219F221300A3C839 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FC2546AA21C2FF00004B1588 /* HighScoreViewController.swift */,
 				FCA92B8F219E158C00A3C839 /* GameViewController.swift */,
 				FCA92BCB219F22D700A3C839 /* HomeViewController.swift */,
 				FCF897C921BC3A2100FECD93 /* LevelSelectorViewController.swift */,
@@ -553,10 +562,13 @@
 				FCA92B8E219E158C00A3C839 /* GameScene.swift in Sources */,
 				FCA92B90219E158C00A3C839 /* GameViewController.swift in Sources */,
 				FCF897CA21BC3A2100FECD93 /* LevelSelectorViewController.swift in Sources */,
+				FC2546AE21C2FF01004B1588 /* HighScoreViewController.swift in Sources */,
 				FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */,
 				FC2545DC21C1858D004B1588 /* ChooseAnimalViewController.swift in Sources */,
 				FCA92BCC219F22D700A3C839 /* HomeViewController.swift in Sources */,
+				FC2546B021C2FF01004B1588 /* HighScoreObject.swift in Sources */,
 				FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */,
+				FC2546AF21C2FF01004B1588 /* HighScoreTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
