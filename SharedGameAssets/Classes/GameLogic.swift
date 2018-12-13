@@ -22,7 +22,6 @@ enum AnimalNames {
    case EAGLE
    case COW
    case CAT
-    
 }
 
 extension GameScene {
@@ -248,7 +247,3 @@ extension GameScene {
     }
 
 }
-
-
-
-class CoreElements: NSObject {  }

@@ -17,6 +17,25 @@
 		FC2545FB21C19DC2004B1588 /* GameBGMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F621C19DC1004B1588 /* GameBGMusic.mp3 */; };
 		FC2545FC21C19DC2004B1588 /* powerupGained.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F721C19DC1004B1588 /* powerupGained.mp3 */; };
 		FC2545FD21C19DC2004B1588 /* die.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F821C19DC1004B1588 /* die.mp3 */; };
+		FC25467C21C2B615004B1588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25467B21C2B615004B1588 /* AppDelegate.swift */; };
+		FC25468221C2B615004B1588 /* GameSceneTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25468121C2B615004B1588 /* GameSceneTV.swift */; };
+		FC25468421C2B615004B1588 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25468321C2B615004B1588 /* GameViewController.swift */; };
+		FC25468721C2B615004B1588 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC25468521C2B615004B1588 /* Main.storyboard */; };
+		FC25468921C2B617004B1588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC25468821C2B617004B1588 /* Assets.xcassets */; };
+		FC25469121C2B7AF004B1588 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92B8D219E158C00A3C839 /* GameScene.swift */; };
+		FC25469221C2B7B2004B1588 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B89219E158C00A3C839 /* GameScene.sks */; };
+		FC25469321C2B7B5004B1588 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B8B219E158C00A3C839 /* Actions.sks */; };
+		FC25469421C2B7B9004B1588 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */; };
+		FC25469521C2B7C8004B1588 /* die.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F821C19DC1004B1588 /* die.mp3 */; };
+		FC25469621C2B7C8004B1588 /* GameBGMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F621C19DC1004B1588 /* GameBGMusic.mp3 */; };
+		FC25469721C2B7C8004B1588 /* jump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F421C19DC1004B1588 /* jump.mp3 */; };
+		FC25469821C2B7C8004B1588 /* powerupGained.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F721C19DC1004B1588 /* powerupGained.mp3 */; };
+		FC25469921C2B7CB004B1588 /* bird1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2545EE21C1978A004B1588 /* bird1.png */; };
+		FC25469A21C2B7CB004B1588 /* browncow.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2545EC21C19789004B1588 /* browncow.png */; };
+		FC25469B21C2B7CB004B1588 /* cat-1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2545ED21C1978A004B1588 /* cat-1.png */; };
+		FC25469C21C2B7CB004B1588 /* eagle-1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2545EB21C19789004B1588 /* eagle-1.png */; };
+		FC25469D21C2B7D4004B1588 /* Animals.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */; };
+		FC25469E21C2B7DE004B1588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B94219E158D00A3C839 /* Assets.xcassets */; };
 		FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */; };
 		FC51FEF921A9C8F7002CB2A4 /* Animals.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */; };
 		FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92B87219E158C00A3C839 /* AppDelegate.swift */; };
@@ -92,6 +111,14 @@
 		FC2545F621C19DC1004B1588 /* GameBGMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameBGMusic.mp3; sourceTree = "<group>"; };
 		FC2545F721C19DC1004B1588 /* powerupGained.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = powerupGained.mp3; sourceTree = "<group>"; };
 		FC2545F821C19DC1004B1588 /* die.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = die.mp3; sourceTree = "<group>"; };
+		FC25466721C1AE44004B1588 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.1.sdk/System/Library/Frameworks/SpriteKit.framework; sourceTree = DEVELOPER_DIR; };
+		FC25467921C2B615004B1588 /* AnimalFlappersTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappersTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC25467B21C2B615004B1588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC25468121C2B615004B1588 /* GameSceneTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneTV.swift; sourceTree = "<group>"; };
+		FC25468321C2B615004B1588 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		FC25468621C2B615004B1588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FC25468821C2B617004B1588 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC25468A21C2B617004B1588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Animals.atlas; sourceTree = "<group>"; };
 		FCA92B84219E158C00A3C839 /* AnimalFlappers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +147,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FC25467621C2B615004B1588 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FCA92B81219E158C00A3C839 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +186,7 @@
 		FC2545E821C19742004B1588 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC25466721C1AE44004B1588 /* SpriteKit.framework */,
 				FC2545E921C19742004B1588 /* SpriteKit.framework */,
 			);
 			name = Frameworks;
@@ -168,12 +203,82 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		FC25466421C1AD58004B1588 /* SharedGameAssets */ = {
+			isa = PBXGroup;
+			children = (
+				FCA92B8D219E158C00A3C839 /* GameScene.swift */,
+				FC25467421C2B522004B1588 /* SpriteKit */,
+				FCA92B94219E158D00A3C839 /* Assets.xcassets */,
+				FC25466621C1AE01004B1588 /* Classes */,
+				FC2545F321C19DA9004B1588 /* Sounds */,
+				FC2545DF21C194BB004B1588 /* PreviewImages */,
+				FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */,
+			);
+			path = SharedGameAssets;
+			sourceTree = "<group>";
+		};
+		FC25466621C1AE01004B1588 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FC25467421C2B522004B1588 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				FCA92B89219E158C00A3C839 /* GameScene.sks */,
+				FCA92B8B219E158C00A3C839 /* Actions.sks */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		FC25467A21C2B615004B1588 /* AnimalFlappersTV */ = {
+			isa = PBXGroup;
+			children = (
+				FC2546A021C2BBCA004B1588 /* Storyboard */,
+				FC25468F21C2B665004B1588 /* View Controllers */,
+				FC25468E21C2B64E004B1588 /* Classes */,
+				FC25468821C2B617004B1588 /* Assets.xcassets */,
+				FC25468A21C2B617004B1588 /* Info.plist */,
+			);
+			path = AnimalFlappersTV;
+			sourceTree = "<group>";
+		};
+		FC25468E21C2B64E004B1588 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FC25467B21C2B615004B1588 /* AppDelegate.swift */,
+				FC25468121C2B615004B1588 /* GameSceneTV.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FC25468F21C2B665004B1588 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC25468321C2B615004B1588 /* GameViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FC2546A021C2BBCA004B1588 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FC25468521C2B615004B1588 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		FCA92B7B219E158C00A3C839 = {
 			isa = PBXGroup;
 			children = (
+				FC25466421C1AD58004B1588 /* SharedGameAssets */,
 				FCA92B86219E158C00A3C839 /* AnimalFlappers */,
 				FCA92BA2219E17CC00A3C839 /* AnimalFlappersWK */,
 				FCA92BB1219E17CE00A3C839 /* AnimalFlappersWK Extension */,
+				FC25467A21C2B615004B1588 /* AnimalFlappersTV */,
 				FCA92B85219E158C00A3C839 /* Products */,
 				FC2545E821C19742004B1588 /* Frameworks */,
 			);
@@ -185,6 +290,7 @@
 				FCA92B84219E158C00A3C839 /* AnimalFlappers.app */,
 				FCA92BA1219E17CC00A3C839 /* AnimalFlappersWK.app */,
 				FCA92BAD219E17CE00A3C839 /* AnimalFlappersWK Extension.appex */,
+				FC25467921C2B615004B1588 /* AnimalFlappersTV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,14 +298,9 @@
 		FCA92B86219E158C00A3C839 /* AnimalFlappers */ = {
 			isa = PBXGroup;
 			children = (
-				FC2545F321C19DA9004B1588 /* Sounds */,
-				FC2545DF21C194BB004B1588 /* PreviewImages */,
-				FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */,
 				FCA92BCA219F227800A3C839 /* Storyboards */,
-				FCA92BC9219F221B00A3C839 /* SpriteKit  */,
 				FCA92BC8219F221300A3C839 /* View Controllers */,
 				FCA92BC7219F21EA00A3C839 /* Classes */,
-				FCA92B94219E158D00A3C839 /* Assets.xcassets */,
 				FCA92B99219E158D00A3C839 /* Info.plist */,
 			);
 			path = AnimalFlappers;
@@ -232,8 +333,6 @@
 			isa = PBXGroup;
 			children = (
 				FCA92B87219E158C00A3C839 /* AppDelegate.swift */,
-				FCA92B8D219E158C00A3C839 /* GameScene.swift */,
-				FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -249,15 +348,6 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		FCA92BC9219F221B00A3C839 /* SpriteKit  */ = {
-			isa = PBXGroup;
-			children = (
-				FCA92B89219E158C00A3C839 /* GameScene.sks */,
-				FCA92B8B219E158C00A3C839 /* Actions.sks */,
-			);
-			path = "SpriteKit ";
-			sourceTree = "<group>";
-		};
 		FCA92BCA219F227800A3C839 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +360,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FC25467821C2B615004B1588 /* AnimalFlappersTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC25468B21C2B617004B1588 /* Build configuration list for PBXNativeTarget "AnimalFlappersTV" */;
+			buildPhases = (
+				FC25467521C2B615004B1588 /* Sources */,
+				FC25467621C2B615004B1588 /* Frameworks */,
+				FC25467721C2B615004B1588 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnimalFlappersTV;
+			productName = AnimalFlappersTV;
+			productReference = FC25467921C2B615004B1588 /* AnimalFlappersTV.app */;
+			productType = "com.apple.product-type.application";
+		};
 		FCA92B83219E158C00A3C839 /* AnimalFlappers */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCA92B9C219E158D00A3C839 /* Build configuration list for PBXNativeTarget "AnimalFlappers" */;
@@ -329,10 +436,13 @@
 		FCA92B7C219E158C00A3C839 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = GreyCodeGroup;
 				TargetAttributes = {
+					FC25467821C2B615004B1588 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					FCA92B83219E158C00A3C839 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -360,11 +470,33 @@
 				FCA92B83219E158C00A3C839 /* AnimalFlappers */,
 				FCA92BA0219E17CC00A3C839 /* AnimalFlappersWK */,
 				FCA92BAC219E17CE00A3C839 /* AnimalFlappersWK Extension */,
+				FC25467821C2B615004B1588 /* AnimalFlappersTV */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FC25467721C2B615004B1588 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC25468721C2B615004B1588 /* Main.storyboard in Resources */,
+				FC25469621C2B7C8004B1588 /* GameBGMusic.mp3 in Resources */,
+				FC25469B21C2B7CB004B1588 /* cat-1.png in Resources */,
+				FC25469721C2B7C8004B1588 /* jump.mp3 in Resources */,
+				FC25469321C2B7B5004B1588 /* Actions.sks in Resources */,
+				FC25469A21C2B7CB004B1588 /* browncow.png in Resources */,
+				FC25469221C2B7B2004B1588 /* GameScene.sks in Resources */,
+				FC25469D21C2B7D4004B1588 /* Animals.atlas in Resources */,
+				FC25469521C2B7C8004B1588 /* die.mp3 in Resources */,
+				FC25469C21C2B7CB004B1588 /* eagle-1.png in Resources */,
+				FC25469921C2B7CB004B1588 /* bird1.png in Resources */,
+				FC25468921C2B617004B1588 /* Assets.xcassets in Resources */,
+				FC25469E21C2B7DE004B1588 /* Assets.xcassets in Resources */,
+				FC25469821C2B7C8004B1588 /* powerupGained.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FCA92B82219E158C00A3C839 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -406,6 +538,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FC25467521C2B615004B1588 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC25468221C2B615004B1588 /* GameSceneTV.swift in Sources */,
+				FC25468421C2B615004B1588 /* GameViewController.swift in Sources */,
+				FC25469121C2B7AF004B1588 /* GameScene.swift in Sources */,
+				FC25469421C2B7B9004B1588 /* GameLogic.swift in Sources */,
+				FC25467C21C2B615004B1588 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FCA92B80219E158C00A3C839 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,6 +590,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FC25468521C2B615004B1588 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC25468621C2B615004B1588 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		FCA92B91219E158C00A3C839 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -473,6 +625,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FC25468C21C2B617004B1588 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W28JC3BNH3;
+				INFOPLIST_FILE = AnimalFlappersTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.GreyCodeGroup.AnimalFlappersTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+			};
+			name = Debug;
+		};
+		FC25468D21C2B617004B1588 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W28JC3BNH3;
+				INFOPLIST_FILE = AnimalFlappersTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.GreyCodeGroup.AnimalFlappersTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+			};
+			name = Release;
+		};
 		FCA92B9A219E158D00A3C839 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -712,6 +906,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FC25468B21C2B617004B1588 /* Build configuration list for PBXNativeTarget "AnimalFlappersTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC25468C21C2B617004B1588 /* Debug */,
+				FC25468D21C2B617004B1588 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FCA92B7F219E158C00A3C839 /* Build configuration list for PBXProject "AnimalFlappers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
