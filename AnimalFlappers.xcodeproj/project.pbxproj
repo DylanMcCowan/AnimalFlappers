@@ -18,7 +18,6 @@
 		FC2545FC21C19DC2004B1588 /* powerupGained.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F721C19DC1004B1588 /* powerupGained.mp3 */; };
 		FC2545FD21C19DC2004B1588 /* die.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC2545F821C19DC1004B1588 /* die.mp3 */; };
 		FC25467C21C2B615004B1588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25467B21C2B615004B1588 /* AppDelegate.swift */; };
-		FC25468221C2B615004B1588 /* GameSceneTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25468121C2B615004B1588 /* GameSceneTV.swift */; };
 		FC25468421C2B615004B1588 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC25468321C2B615004B1588 /* GameViewController.swift */; };
 		FC25468721C2B615004B1588 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC25468521C2B615004B1588 /* Main.storyboard */; };
 		FC25468921C2B617004B1588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC25468821C2B617004B1588 /* Assets.xcassets */; };
@@ -114,7 +113,6 @@
 		FC25466721C1AE44004B1588 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.1.sdk/System/Library/Frameworks/SpriteKit.framework; sourceTree = DEVELOPER_DIR; };
 		FC25467921C2B615004B1588 /* AnimalFlappersTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappersTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC25467B21C2B615004B1588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC25468121C2B615004B1588 /* GameSceneTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneTV.swift; sourceTree = "<group>"; };
 		FC25468321C2B615004B1588 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FC25468621C2B615004B1588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC25468821C2B617004B1588 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				FC25467B21C2B615004B1588 /* AppDelegate.swift */,
-				FC25468121C2B615004B1588 /* GameSceneTV.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -542,7 +539,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC25468221C2B615004B1588 /* GameSceneTV.swift in Sources */,
 				FC25468421C2B615004B1588 /* GameViewController.swift in Sources */,
 				FC25469121C2B7AF004B1588 /* GameScene.swift in Sources */,
 				FC25469421C2B7B9004B1588 /* GameLogic.swift in Sources */,

@@ -108,6 +108,7 @@
                                 <state key="normal" title="Choose This Animal To Play As"/>
                                 <connections>
                                     <action selector="updateSelectedAnimal" destination="C5I-2A-ihR" eventType="touchUpInside" id="vDJ-kg-qM1"/>
+                                    <segue destination="OtX-YL-3Dd" kind="presentation" id="cjW-39-zor"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -123,7 +124,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SzI-B5-ZHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9rc-Cg-Vs5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1024.8" y="801.72413793103453"/>
+            <point key="canvasLocation" x="270" y="864"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="l33-qn-kGD">
@@ -147,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHu-3j-3Ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="270" y="802"/>
+            <point key="canvasLocation" x="1073" y="29"/>
         </scene>
         <!--Level Selector View Controller-->
         <scene sceneID="Mua-UO-IoT">
@@ -217,7 +218,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Skw-Cj-0py" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9Qv-no-KZs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1024.8" y="28.817733990147783"/>
+            <point key="canvasLocation" x="1073" y="864"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="q02-Kq-LMJ">
@@ -255,7 +256,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBK-uw-cWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4Wo-r8-iGe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1848.8" y="28.817733990147783"/>
+            <point key="canvasLocation" x="1882" y="864"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fWn-mG-aTl"/>
+    </inferredMetricsTieBreakers>
 </document>
