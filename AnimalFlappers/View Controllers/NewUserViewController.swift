@@ -8,17 +8,21 @@
 
 import UIKit
 
-class NewUserViewController: UIViewController {
+class NewUserViewController: UIViewController{
+ 
+    
         
         //URL to our web service
         let URL_SAVE_PLAYER = "https://sing3791.dev.fast.sheridanc.on.ca/projectData/createteam.php"
+    
+        let mgr = DBManager()
         
-        
-        //TextFields declarations
+        // declarations
         @IBOutlet var btnSave : UIButton!
-        @IBOutlet var txtPlayerName : UITextInput!
-        
-        
+        @IBOutlet var txtPlayerName : UITextField?
+        @IBOutlet var pvSelectPlayer : UIPickerView!
+
+  
         //Button action method
         @IBAction func btnSave(sender: UIButton) {
             
@@ -32,10 +36,10 @@ class NewUserViewController: UIViewController {
             request.httpMethod = "POST"
             
             //getting values from text fields
-            let userName = txtPlayerName.text
+            let userName = txtPlayerName?.text
             
             //creating the post parameter by concatenating the keys and values from text field
-            let postParameters = "PlayerName=\(userName)&HighScore=0&UnlockedLevel=1"
+            let postParameters = ("PlayerName=\(userName!)&HighScore=0&UnlockedLevel=1")
             print(postParameters)
             //adding the parameters to request body
             request.httpBody = postParameters.data(using: String.Encoding.utf8)
@@ -77,13 +81,13 @@ class NewUserViewController: UIViewController {
             task.resume()
             
         }
-        
+   
         
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view, typically from a nib.
         }
-        
+
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.

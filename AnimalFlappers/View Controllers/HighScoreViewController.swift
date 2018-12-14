@@ -10,37 +10,50 @@ import UIKit
 
 class HighScoreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var highScores: [HighScoreObject] = []
+   let mgr = DBManager()
+
     
     @IBOutlet var tvHighscores : UITableView!
+    @IBOutlet var lblChosen : UILabel!
+    @IBOutlet var btnChoosePlayer : UIButton!
     
-    func initFakeDetails()
-    {
-        let highObj = HighScoreObject()
-        highObj.initWithData(userName: "Mahadevan Ramakrishnan", highScore: "100")
+     var timer : Timer!
+    
+    private var  tempPlayerName : String = ""
+    private var  tempHighScore : Int = 0
+    private var  tempLevelUnlocked: Int = 0
+    
+    @IBAction func selectPlayer(){
+    let del = UIApplication.shared.delegate as! AppDelegate
+        del.PLAYER_NAME = self.tempPlayerName
+        del.PL_HIGHSCORE = self.tempHighScore
+        del.PL_LEVEL = self.tempLevelUnlocked
         
-        let highObj2 = HighScoreObject()
-        highObj2.initWithData(userName: "Dylan McCowan", highScore: "150")
-        
-        let highObj3 = HighScoreObject()
-        highObj3.initWithData(userName: "Harjot Singh", highScore: "230")
-        
-        let highObj4 = HighScoreObject()
-        highObj4.initWithData(userName: "Gus Dasilva", highScore: "540")
-        
-        
-        highScores.append(highObj)
-        highScores.append(highObj2)
-        highScores.append(highObj3)
-        highScores.append(highObj4)
+        lblChosen.text = "You chose: \(tempPlayerName)!"
     }
-
+    
+    @objc func refreshTable(){
+        
+        if mgr.retrievedData != nil{
+            if (mgr.retrievedData?.count)! > 0 {
+                self.tvHighscores.reloadData()
+                self.timer.invalidate()
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        initFakeDetails()
+        btnChoosePlayer.isHidden = true
         
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.refreshTable), userInfo: nil, repeats: true)
+
+        mgr.loadData()
     }
     
     
@@ -50,17 +63,22 @@ class HighScoreViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return highScores.count
+        if mgr.retrievedData != nil {
+          return (mgr.retrievedData?.count)!
+        }else{
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell : HighScoreTableViewCell = tableView.dequeueReusableCell (withIdentifier: "ProgramCell") as? HighScoreTableViewCell ?? HighScoreTableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "ProgramCell")
 
         let row = indexPath.row
-        let rowObj = highScores[row]
+        let rowObj = mgr.retrievedData![row]
         
-        tableCell.userName.text = rowObj.userName
-       tableCell.highScore.text = rowObj.highScore
+        tableCell.userName.text = rowObj["PlayerName"] as! String
+        tableCell.highScore.text = rowObj["HighScore"] as! String
+        tableCell.levelUnlocked.text = rowObj["UnlockedLevel"] as! String
         
         return tableCell
         
@@ -68,7 +86,21 @@ class HighScoreViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedPlayer = tableView.cellForRow(at: indexPath) as? HighScoreTableViewCell
+        
+        tempPlayerName = selectedPlayer?.userName.text as! String
+        tempHighScore = Int((selectedPlayer?.highScore.text)!)!
+        tempLevelUnlocked = Int((selectedPlayer?.levelUnlocked.text)!)!
+        
+        lblChosen.text = "Select \(tempPlayerName)!?"
+        btnChoosePlayer.isHidden = false
+        
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        btnChoosePlayer.isHidden = true
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80

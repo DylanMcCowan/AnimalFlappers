@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+//Structure to define Collision detection masks to apply in the game
 struct CollisionBitMask {
     
     static let ANIMAL_CATEGORY:UInt32 = 0x1 << 0
@@ -17,6 +18,7 @@ struct CollisionBitMask {
    // static let OTHER_CATEGORY:UInt32 = 0x1 << 4
 }
 
+//An Enum to manage what animals have been selected or defined in the game
 enum AnimalNames : String {
    case BIRD = "Bird"
    case EAGLE = "Eagle"
@@ -24,8 +26,10 @@ enum AnimalNames : String {
     case CAT = "Cat"
 }
 
+//EXTENSION - This is an extension from the GameScene.swift class and contains added helper methods necessary for the scene functionality and operation
 extension GameScene {
     
+    //This method is responsible for returning the desired texture array for a specified animal
     func getSelectedAnimalTextureArray(named : AnimalNames) -> [SKTexture]{
         
         let animalAtlas = SKTextureAtlas(named:"Animals")
@@ -60,36 +64,36 @@ extension GameScene {
         return sprites
     }
     
+    //This method is responsible for creating the inital animal node and specifying its inital params, textures and collision information
     func createAnimalNode() -> SKSpriteNode {
         
         //Load an animal texture from the selection
         let del = UIApplication.shared.delegate as! AppDelegate
       
+        //Setup node texture, size and inital position
         let animalNode = SKSpriteNode(texture: getSelectedAnimalTextureArray(named: del.USER_ANIMAL_SELECTION)[0])
         animalNode.size = CGSize(width: 50, height: 50)
         animalNode.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
         
-        
-        //2
+        //Specify the Physics collision body is a circle the radius of the node's width
         animalNode.physicsBody = SKPhysicsBody(circleOfRadius: animalNode.size.width / 2)
         animalNode.physicsBody?.linearDamping = 1.1
         animalNode.physicsBody?.restitution = 0
         
-        
-        //3
+        //Define the animals collision bitmask properties
         animalNode.physicsBody?.categoryBitMask = CollisionBitMask.ANIMAL_CATEGORY
         animalNode.physicsBody?.collisionBitMask = CollisionBitMask.OBSTACLE_CATEGORY | CollisionBitMask.GROUND_CATEGORY
         animalNode.physicsBody?.contactTestBitMask = CollisionBitMask.OBSTACLE_CATEGORY | CollisionBitMask.POWERUP_CATEGORY | CollisionBitMask.GROUND_CATEGORY
         
-        
-        //4
+        //We don't want it affected by gravity yet
         animalNode.physicsBody?.affectedByGravity = false
         animalNode.physicsBody?.isDynamic = true
         
+        //Return the new animal node for use in the game scene
         return animalNode
     }
     
-    //1
+    //Creates a restart button for use in the game scene - for when the player has died
     func showRestartBtn() {
         restartBtn = SKSpriteNode(imageNamed: "restartButtonIcon")
         restartBtn.size = CGSize(width:100, height:100)
@@ -99,7 +103,7 @@ extension GameScene {
         self.addChild(restartBtn)
         restartBtn.run(SKAction.scale(to: 1.0, duration: 0.3))
     }
-    //2
+    //Create the pause button for the scene
     func createPauseBtn() {
         pauseBtn = SKSpriteNode(imageNamed: "pause")
         pauseBtn.size = CGSize(width:40, height:40)
@@ -107,7 +111,7 @@ extension GameScene {
         pauseBtn.zPosition = 6
         self.addChild(pauseBtn)
     }
-    //3
+    //Create and return a label to hold the game score
     func createScoreLabel() -> SKLabelNode {
         let scoreLbl = SKLabelNode()
         scoreLbl.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 + self.frame.height / 2.6)
@@ -116,6 +120,7 @@ extension GameScene {
         scoreLbl.fontSize = 50
         scoreLbl.fontName = "Copperplate"
         
+        //Background shape to provide contract against the score label
         let scoreBg = SKShapeNode()
         scoreBg.position = CGPoint(x: 0, y: 0)
         scoreBg.path = CGPath(roundedRect: CGRect(x: CGFloat(-50), y: CGFloat(-30), width: CGFloat(100), height: CGFloat(100)), cornerWidth: 50, cornerHeight: 50, transform: nil)
@@ -126,38 +131,8 @@ extension GameScene {
         scoreLbl.addChild(scoreBg)
         return scoreLbl
     }
-    //4
-    
-    /*
-    func createHighscoreLabel() -> SKLabelNode {
-        let highscoreLbl = SKLabelNode()
-        highscoreLbl.position = CGPoint(x: self.frame.width - 80, y: self.frame.height - 22)
-        if let highestScore = UserDefaults.standard.object(forKey: "highestScore"){
-            highscoreLbl.text = "Highest Score: \(highestScore)"
-        } else {
-            highscoreLbl.text = "Highest Score: 0"
-        }
-        highscoreLbl.zPosition = 5
-        highscoreLbl.fontSize = 15
-        highscoreLbl.fontName = "Copperplate"
-        return highscoreLbl
-    }
-    */
-    
-    //5
-    /*
-    func createLogo() {
-        logoImg = SKSpriteNode()
-        logoImg = SKSpriteNode(imageNamed: "logo")
-        logoImg.size = CGSize(width: 272, height: 65)
-        logoImg.position = CGPoint(x:self.frame.midX, y:self.frame.midY + 100)
-        logoImg.setScale(0.5)
-        self.addChild(logoImg)
-        logoImg.run(SKAction.scale(to: 1.0, duration: 0.3))
-    }
-    */
-    
-    //6
+ 
+    //Create and return a label which will be shown before the game begins
     func showGameStartLabel() -> SKLabelNode {
         let gs = SKLabelNode()
         gs.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 50)
@@ -169,7 +144,7 @@ extension GameScene {
         return gs
     }
     
-    
+    //Create and return a node to provide functionality for the powerups
     private func createPowerUpNode() -> SKNode {
         // 1
         let powerUpNode = SKSpriteNode(imageNamed: "apple")
@@ -186,6 +161,7 @@ extension GameScene {
         return powerUpNode
     }
     
+    //Create a wall node for use in the wall pairs method
     private func createWallNode() -> SKNode{
         
         let wall = SKSpriteNode(imageNamed: "piller")
@@ -200,6 +176,7 @@ extension GameScene {
         return wall
     }
     
+    //Creates to wall nodes and combines them together as a pair node
     private func createWallPairNode() -> SKNode{
        
         let btmWall = createWallNode()
@@ -221,6 +198,7 @@ extension GameScene {
         return pair
     }
     
+    //Creates the actual node for use in the game scene, takes one pair of walls and adds the powerup node, then returns it to the game scene
     func createWalls() -> SKNode  {
        
         
@@ -239,6 +217,8 @@ extension GameScene {
         
         return wallPair
     }
+    
+    //Random number generation functionality 
     func random() -> CGFloat{
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }

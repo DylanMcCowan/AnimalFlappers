@@ -59,10 +59,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zO-ay-t2F">
-                                <rect key="frame" x="74" y="603" width="226" height="44"/>
+                                <rect key="frame" x="102" y="603" width="170" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="24"/>
-                                <state key="normal" title="View High Scores">
+                                <state key="normal" title="View Players">
                                     <color key="titleColor" red="1" green="0.097630650240000005" blue="0.69955441190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -73,6 +73,20 @@
                                 <rect key="frame" x="32" y="134" width="310" height="202"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Playing As: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abk-kq-o4Q">
+                                <rect key="frame" x="142" y="681" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loT-5Q-mLN">
+                                <rect key="frame" x="32" y="710" width="310" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.84145945310592651" green="0.99935930967330933" blue="0.9969448447227478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
@@ -82,6 +96,7 @@
                         <outlet property="btnNewUser" destination="dbC-h5-IDa" id="eHv-iH-Hqa"/>
                         <outlet property="btnShowHighScores" destination="9zO-ay-t2F" id="lvD-7x-KGp"/>
                         <outlet property="btnStartGame" destination="36f-lE-Vgu" id="kgQ-r5-TOK"/>
+                        <outlet property="lblCurrentPlayer" destination="loT-5Q-mLN" id="H60-AC-4Tb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -261,8 +276,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pqQ-JM-8zV">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Players &amp; High Scores" id="xdo-na-R3M">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="lmB-FQ-fHz">
+                                            <connections>
+                                                <segue destination="5eP-Lj-ZY0" kind="unwind" unwindAction="unwindToHomeViewControllerWithSender:" id="Ck2-E9-2kV"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LPw-lE-r7U">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -274,14 +302,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vx-mp-r1S">
-                                                    <rect key="frame" x="15" y="22" width="220" height="34"/>
+                                                    <rect key="frame" x="15" y="22" width="171" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2z-Np-MUr">
+                                                    <rect key="frame" x="309" y="22" width="51" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nm7-ZN-5en">
-                                                    <rect key="frame" x="243" y="22" width="117" height="34"/>
+                                                    <rect key="frame" x="194" y="22" width="107" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -292,6 +327,7 @@
                                         <color key="backgroundColor" red="0.87492876852550527" green="0.97588995777526777" blue="0.99935930969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="highScore" destination="Nm7-ZN-5en" id="abT-uN-ebJ"/>
+                                            <outlet property="levelUnlocked" destination="f2z-Np-MUr" id="LRM-Em-cvk"/>
                                             <outlet property="userName" destination="1vx-mp-r1S" id="jd7-bK-jSV"/>
                                         </connections>
                                     </tableViewCell>
@@ -301,31 +337,38 @@
                                     <outlet property="delegate" destination="Kt6-Ws-EDx" id="UZm-zo-f7G"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pqQ-JM-8zV">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="High Score" id="xdo-na-R3M">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="lmB-FQ-fHz">
-                                            <connections>
-                                                <segue destination="5eP-Lj-ZY0" kind="unwind" unwindAction="unwindToHomeViewControllerWithSender:" id="Ck2-E9-2kV"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FA2-pg-jcQ">
+                                <rect key="frame" x="94" y="699" width="187" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.53493244819999997" green="1" blue="0.53985001210000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Choose This Player">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPlayer" destination="Kt6-Ws-EDx" eventType="touchUpInside" id="yrf-cx-6Yd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap on a Player to Choose Them" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hu0-PC-NSl">
+                                <rect key="frame" x="0.0" y="757" width="359" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.84145945310592651" green="0.99935930967330933" blue="0.9969448447227478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="iEg-G0-P3H"/>
                     </view>
                     <connections>
+                        <outlet property="btnChoosePlayer" destination="FA2-pg-jcQ" id="PHD-md-pGZ"/>
+                        <outlet property="lblChosen" destination="hu0-PC-NSl" id="9Af-BV-uip"/>
                         <outlet property="tvHighscores" destination="LPw-lE-r7U" id="Tu2-bn-za6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7N-iM-yzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5eP-Lj-ZY0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="29"/>
+            <point key="canvasLocation" x="1880.8" y="28.817733990147783"/>
         </scene>
         <!--New User View Controller-->
         <scene sceneID="3ER-Br-Gpb">
@@ -335,26 +378,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RYI-2z-MEu">
-                                <rect key="frame" x="16" y="262" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bE-2e-AYK">
-                                <rect key="frame" x="133" y="329" width="109" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add New Player"/>
-                                <connections>
-                                    <action selector="btnSaveWithSender:" destination="lU1-l9-m6e" eventType="touchUpInside" id="Pru-r7-5OH"/>
-                                </connections>
-                            </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1g-fh-qck">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Add New Player" id="Qyd-SF-BXv">
+                                    <navigationItem title="Add A Player" id="Qyd-SF-BXv">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="iEG-QW-T6B">
                                             <connections>
                                                 <segue destination="162-1C-pGW" kind="unwind" unwindAction="unwindToHomeViewControllerWithSender:" id="jry-14-xyu"/>
@@ -363,19 +391,37 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Tx-ey-K4U">
+                                <rect key="frame" x="16" y="356" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bE-2e-AYK">
+                                <rect key="frame" x="104" y="394" width="166" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.43277478899999999" green="0.75101939829999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add New Player">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSaveWithSender:" destination="lU1-l9-m6e" eventType="touchUpInside" id="Pru-r7-5OH"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.84145945310592651" green="0.99935930967330933" blue="0.9969448447227478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="aEV-pB-Ytc"/>
                     </view>
                     <connections>
                         <outlet property="btnSave" destination="5bE-2e-AYK" id="hk8-93-bTz"/>
-                        <outlet property="txtPlayerName" destination="RYI-2z-MEu" id="BMt-ug-EHY"/>
+                        <outlet property="txtPlayerName" destination="7Tx-ey-K4U" id="rkB-Rc-Gpd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYU-5P-hCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="162-1C-pGW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="-642"/>
+            <point key="canvasLocation" x="1880.8" y="-647.29064039408865"/>
         </scene>
     </scenes>
     <resources>

@@ -45,6 +45,8 @@
 		FC2546BF21C31852004B1588 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2546BE21C31851004B1588 /* WatchConnectivity.framework */; };
 		FC2546C121C31856004B1588 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2546C021C31856004B1588 /* WatchKit.framework */; };
 		FC2546C321C342D8004B1588 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546C221C342D8004B1588 /* DBManager.swift */; };
+		FC2546C521C34429004B1588 /* HighScoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546C421C34429004B1588 /* HighScoreObject.swift */; };
+		FC2546C721C3738A004B1588 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546C221C342D8004B1588 /* DBManager.swift */; };
 		FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */; };
 		FC51FEF921A9C8F7002CB2A4 /* Animals.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */; };
 		FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92B87219E158C00A3C839 /* AppDelegate.swift */; };
@@ -135,6 +137,7 @@
 		FC2546BE21C31851004B1588 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		FC2546C021C31856004B1588 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
 		FC2546C221C342D8004B1588 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		FC2546C421C34429004B1588 /* HighScoreObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreObject.swift; sourceTree = "<group>"; };
 		FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Animals.atlas; sourceTree = "<group>"; };
 		FCA92B84219E158C00A3C839 /* AnimalFlappers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +242,7 @@
 		FC25466621C1AE01004B1588 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FC2546C221C342D8004B1588 /* DBManager.swift */,
 				FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */,
 			);
 			path = Classes;
@@ -351,10 +355,10 @@
 		FCA92BC7219F21EA00A3C839 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FCA92B87219E158C00A3C839 /* AppDelegate.swift */,
+				FC2546C421C34429004B1588 /* HighScoreObject.swift */,
 				FC2546BB21C31106004B1588 /* WatchProgramObject.swift */,
 				FC2546AB21C2FF01004B1588 /* HighScoreTableViewCell.swift */,
-				FCA92B87219E158C00A3C839 /* AppDelegate.swift */,
-				FC2546C221C342D8004B1588 /* DBManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -567,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC25468421C2B615004B1588 /* GameViewController.swift in Sources */,
+				FC2546C721C3738A004B1588 /* DBManager.swift in Sources */,
 				FC25469121C2B7AF004B1588 /* GameScene.swift in Sources */,
 				FC25469421C2B7B9004B1588 /* GameLogic.swift in Sources */,
 				FC25467C21C2B615004B1588 /* AppDelegate.swift in Sources */,
@@ -582,6 +587,7 @@
 				FCF897CA21BC3A2100FECD93 /* LevelSelectorViewController.swift in Sources */,
 				FC2546AE21C2FF01004B1588 /* HighScoreViewController.swift in Sources */,
 				FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */,
+				FC2546C521C34429004B1588 /* HighScoreObject.swift in Sources */,
 				FC2545DC21C1858D004B1588 /* ChooseAnimalViewController.swift in Sources */,
 				FCA92BCC219F22D700A3C839 /* HomeViewController.swift in Sources */,
 				FC2546C321C342D8004B1588 /* DBManager.swift in Sources */,

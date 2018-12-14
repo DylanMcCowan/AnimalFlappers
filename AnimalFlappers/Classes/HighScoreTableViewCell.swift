@@ -12,7 +12,7 @@ class HighScoreTableViewCell: UITableViewCell {
     
     @IBOutlet var userName : UILabel!
     @IBOutlet var highScore : UILabel!
-    
+    @IBOutlet var levelUnlocked : UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

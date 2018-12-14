@@ -24,8 +24,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let jumpSound = SKAction.playSoundFileNamed("jump.mp3", waitForCompletion: false)
     let gameOverSound = SKAction.playSoundFileNamed("die.mp3", waitForCompletion: false)
 
-
-    
     //Player Variables
     var score = Int(0)
     var scoreLbl = SKLabelNode()
@@ -37,13 +35,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var wallPair = SKNode()
     var moveAndRemove = SKAction()
     
-    //Animal Texture Atlas
+    //Animal Texture Atlas, Sprites
     let animalAtlas = SKTextureAtlas(named:"Animals")
     var animalSprites = Array<Any>()
+    
+    //Sprite node to hold the Animal
     var animalNode = SKSpriteNode()
+    
+    //Animation Repeating action
     var animalRepeatingAction  = SKAction()
     
-    //AnimalTextureNames
+    //AnimalTextureNames - To represent the animations for each animals
    static let birdTextureNames = ["bird1", "bird2", "bird3", "bird4"]
     static let catTextureNames = ["cat-1", "cat-2", "cat-3"]
     static let eagleTextureNames = ["eagle-1", "eagle-2", "eagle-3", "eagle-4"]
@@ -63,35 +65,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* ANIMAL ANIMATIONS */
         createAnimalAnimations()
         
-        //Create the Score label
+        //Create the Score label and add it to the scene
         scoreLbl = createScoreLabel()
         self.addChild(scoreLbl)
         
-      //  highscoreLbl = createHighscoreLabel()
-       // self.addChild(highscoreLbl)
-        //createLogo()
-        
-        
-        //Show the Game Starting Text
+        //Show the Game Starting Text before the game begins
         gsLabel = showGameStartLabel()
         self.addChild(gsLabel)
-        
     }
     
+    //THIS Method is responsible for creating the repeating action for the animal if applicable textures are specified and available
     private func createAnimalAnimations(){
         
         //Create the animation and ensure it repeats forever per frame for the selected animal 
         let animalAnimationAction = SKAction.animate(with: self.animalSprites as! [SKTexture], timePerFrame: 0.1)
         self.animalRepeatingAction = SKAction.repeatForever(animalAnimationAction)
-     
     }
     
+    //Do some initalization for the Game Scene with regards to the chosen animal
     private func initalizeGameSceneAnimals(){
         
         let del = UIApplication.shared.delegate as! AppDelegate
         
-        
-        /* ANIMAL SPRITES */
+        /* ANIMAL SPRITE */
         animalSprites = getSelectedAnimalTextureArray(named: del.USER_ANIMAL_SELECTION)
         
         //Handle the animals via a node and add it to the GameScene
@@ -100,8 +96,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    //This method handles configuring and initalizing a number of Physics and scene related parameters
     private func initalizeGameSceneParams(){
-        
         
         //COLLISION - Configure the Scene physics for collision detection
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -128,7 +124,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             background.size = (self.view?.bounds.size)!
             self.addChild(background)
         }
-        
     }
     
     //This method is called when the GameScene SKView is displayed on the device
@@ -136,87 +131,83 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Run the game scene
         runScene()
     }
-    
-    
-    override func sceneDidLoad() { }
-    
-    //These methods are currently not used within the game
-    func touchDown(atPoint pos : CGPoint) { }
-    
-    func touchMoved(toPoint pos : CGPoint) { }
-    
-    func touchUp(atPoint pos : CGPoint) { }
-    
-    
+
+
     //This method is designed to handle touch events within the game
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
+        
+        //If the game has yet to be started with a touch
         if isGameStarted == false{
             
-            //1
+            //Start the game
             isGameStarted =  true
+            //Now we want the animal to be affected by gravity and fall down
             animalNode.physicsBody?.affectedByGravity = true
+            
+            //Create a pause button for the game
             createPauseBtn()
             
-            
-            //2
-            logoImg.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
-                self.logoImg.removeFromParent()
-            })
+            //Remove the initial label from the game screen
             gsLabel.removeFromParent()
             
-            
-            //3
+            //Start the animal texture animation
             self.animalNode.run(animalRepeatingAction)
             
-            //1
+            
+            //Handle the spawning of the pillars
             let spawn = SKAction.run({
                 () in
                 self.wallPair = self.createWalls()
                 self.addChild(self.wallPair)
-            })
-            //2
+                })
+            
+            //Set the spawning delay for each incoming wall pair
             let delay = SKAction.wait(forDuration: 1.5 )
             let SpawnDelay = SKAction.sequence([spawn, delay])
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
             self.run(spawnDelayForever)
-            //3
+
+            //Set the distance between each spawning wall pair in terms of height
             let distance = CGFloat(self.frame.width + wallPair.frame.width)
             let movePillars = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
             let removePillars = SKAction.removeFromParent()
             moveAndRemove = SKAction.sequence([movePillars, removePillars])
-            
-            
-            
+ 
+            //Apply a movement to the animal
             animalNode.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             animalNode.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
         } else {
-            //4
+            
+            //Apply the force for movement to the animal with each touch
             if isDead == false {
                 animalNode.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                 animalNode.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
         }
         
-        ////
-        
+        //Handle the location of each touch
         for touch in touches{
             let location = touch.location(in: self)
-            //1
+            
+            //If the player has died
             if isDead == true{
                 if restartBtn.contains(location){
-                    if UserDefaults.standard.object(forKey: "highestScore") != nil {
-                        let hscore = UserDefaults.standard.integer(forKey: "highestScore")
+                    let del = UIApplication.shared.delegate as! AppDelegate
+                    
+                    //When the reset button is tapped, check the highscore and update it if necessary in the database
+                        let hscore = del.PL_HIGHSCORE
                         if hscore < Int(scoreLbl.text!)!{
-                            UserDefaults.standard.set(scoreLbl.text, forKey: "highestScore")
+                            del.PL_HIGHSCORE = Int(scoreLbl.text!)!
+                            del.PL_LEVEL = determineLevelUnlock(forScore: Int(scoreLbl.text!)!)
+                            let mgr = DBManager()
+                            mgr.updatePlayerValues(PlayerName: del.PLAYER_NAME, HighScore: del.PL_HIGHSCORE, UnlockedLevel: del.PL_LEVEL)
                         }
-                    } else {
-                        UserDefaults.standard.set(0, forKey: "highestScore")
-                    }
+                    //Restart the game
                     restartGameScene()
                 }
             } else {
-                //2
+                //If not dead, check if they hit the pause button and update accordingly
                 if pauseBtn.contains(location){
                     if self.isPaused == false{
                         self.isPaused = true
@@ -226,23 +217,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         pauseBtn.texture = SKTexture(imageNamed: "pause")
                     }
                 }
+                //Each tap has a sound
                 run(jumpSound)
             }
         }
-        
-       
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
     //This method is designed to handle the Collision Detection and processing 
@@ -250,6 +228,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let firstBody = contact.bodyA
         let secondBody = contact.bodyB
         
+        //Determine if it is a wall - if it is, game over
         if firstBody.categoryBitMask == CollisionBitMask.ANIMAL_CATEGORY && secondBody.categoryBitMask == CollisionBitMask.OBSTACLE_CATEGORY || firstBody.categoryBitMask == CollisionBitMask.OBSTACLE_CATEGORY && secondBody.categoryBitMask == CollisionBitMask.ANIMAL_CATEGORY || firstBody.categoryBitMask == CollisionBitMask.ANIMAL_CATEGORY && secondBody.categoryBitMask == CollisionBitMask.GROUND_CATEGORY || firstBody.categoryBitMask == CollisionBitMask.GROUND_CATEGORY && secondBody.categoryBitMask ==  CollisionBitMask.ANIMAL_CATEGORY {
             enumerateChildNodes(withName: "wallPair", using: ({
                 (node, error) in
@@ -263,11 +242,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 pauseBtn.removeFromParent()
                 self.animalNode.removeAllActions()
             }
+            //If the animal has acquired a powerup
         } else if firstBody.categoryBitMask == CollisionBitMask.ANIMAL_CATEGORY && secondBody.categoryBitMask == CollisionBitMask.POWERUP_CATEGORY {
             run(powerupSound)
             score += 1
             scoreLbl.text = "\(score)"
             secondBody.node?.removeFromParent()
+            
+            //If the powerup collided with an animal
         } else if firstBody.categoryBitMask == CollisionBitMask.POWERUP_CATEGORY && secondBody.categoryBitMask == CollisionBitMask.ANIMAL_CATEGORY{
             run(powerupSound)
             score += 1
@@ -276,14 +258,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    //This method receives a score and determines if it is high enough to unlock a new level
+    private func determineLevelUnlock(forScore : Int) -> Int{
+        
+        if(forScore > 10){
+            return 2
+        }else if forScore > 20{
+            return 3
+        }else if forScore > 30 {
+            return 4
+        }else if forScore > 40 {
+            return 5
+        }else if forScore > 50 {
+            return 6
+        }else{
+            return 1
+        }
+    }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
         if isGameStarted == true{
-            
             if isDead == false{
-                
+                //Move the background a slight amount with each frame update
                 enumerateChildNodes(withName: "background", using: ({
                     (node, error) in
                     let bg = node as! SKSpriteNode
@@ -292,20 +290,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         bg.position = CGPoint(x:bg.position.x + bg.size.width * 2, y:bg.position.y)
                     }
                 }))
-                
-                
             }
         }
-        
-        
     }
     
+    //This Method is called to reset the game scene to its inital state when the player dies to try again
     func restartGameScene(){
+        
+        //Remove all nodes and actions so they can be reinitalized
         self.removeAllChildren()
         self.removeAllActions()
         isDead = false
         isGameStarted = false
         score = 0
+        //Run the scene start sequence again
         runScene()
     }
+    
+    // MARK: - Protocol & Unimplemented Method Stubs
+    
+    //These methods are currently not implemented within the game
+    override func sceneDidLoad() { }
+    
+    func touchDown(atPoint pos : CGPoint) { }
+    
+    func touchMoved(toPoint pos : CGPoint) { }
+    
+    func touchUp(atPoint pos : CGPoint) { }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    
 }

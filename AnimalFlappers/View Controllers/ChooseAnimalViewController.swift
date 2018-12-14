@@ -18,6 +18,7 @@ class ChooseAnimalViewController: UIViewController, UIPickerViewDelegate, UIPick
     private var del = UIApplication.shared.delegate as! AppDelegate
     private var currSelectedAnimal = AnimalNames.BIRD
     
+    //When the player chooses an animal, update the selected animal in the app delegate and show that selection in the watch app as well
     @IBAction func updateSelectedAnimal(){
        del.USER_ANIMAL_SELECTION = currSelectedAnimal
         
@@ -63,6 +64,7 @@ class ChooseAnimalViewController: UIViewController, UIPickerViewDelegate, UIPick
        return GameScene.animals[row]
     }
     
+    //THis picker view will show the associated animal image based on which animal was selected in the row
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         let name = GameScene.animals[row]
@@ -102,22 +104,14 @@ class ChooseAnimalViewController: UIViewController, UIPickerViewDelegate, UIPick
         }
     }
     
+    //MARK: - Protocol stubs
+    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
     
     func sessionDidBecomeInactive(_ session: WCSession) { }
     
     func sessionDidDeactivate(_ session: WCSession) { }
     
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

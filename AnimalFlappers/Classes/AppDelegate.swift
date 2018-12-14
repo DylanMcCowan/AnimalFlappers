@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var USER_ANIMAL_SELECTION = AnimalNames.BIRD
+    var PLAYER_NAME : String = "Guest"
+    var PL_HIGHSCORE : Int = 0
+    var PL_LEVEL : Int = 1
+    var DB_DATA : [NSDictionary]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
