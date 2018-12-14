@@ -17,11 +17,11 @@ struct CollisionBitMask {
    // static let OTHER_CATEGORY:UInt32 = 0x1 << 4
 }
 
-enum AnimalNames {
-   case BIRD
-   case EAGLE
-   case COW
-   case CAT
+enum AnimalNames : String {
+   case BIRD = "Bird"
+   case EAGLE = "Eagle"
+    case COW = "Cow"
+    case CAT = "Cat"
 }
 
 extension GameScene {

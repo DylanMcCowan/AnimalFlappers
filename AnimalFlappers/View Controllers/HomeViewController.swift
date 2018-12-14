@@ -12,7 +12,8 @@ class HomeViewController: UIViewController {
 
     @IBOutlet var btnStartGame : UIButton!
     @IBOutlet var btnChooseAnimal : UIButton!
-    @IBOutlet var btnSettings : UIButton!
+    @IBOutlet var btnNewUser : UIButton!
+    @IBOutlet var btnShowHighScores : UIButton!
     
     @IBAction func unwindToHomeViewController(sender: UIStoryboardSegue)
     {   }

@@ -37,7 +37,14 @@
 		FC25469E21C2B7DE004B1588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B94219E158D00A3C839 /* Assets.xcassets */; };
 		FC2546AE21C2FF01004B1588 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546AA21C2FF00004B1588 /* HighScoreViewController.swift */; };
 		FC2546AF21C2FF01004B1588 /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546AB21C2FF01004B1588 /* HighScoreTableViewCell.swift */; };
-		FC2546B021C2FF01004B1588 /* HighScoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546AC21C2FF01004B1588 /* HighScoreObject.swift */; };
+		FC2546B321C30DB9004B1588 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546B121C30DB9004B1588 /* NewUserViewController.swift */; };
+		FC2546B621C310BC004B1588 /* WatchProgramInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546B521C310BC004B1588 /* WatchProgramInterfaceController.swift */; };
+		FC2546B821C310D8004B1588 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2546B721C310D8004B1588 /* Interface.storyboard */; };
+		FC2546BC21C31106004B1588 /* WatchProgramObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546BB21C31106004B1588 /* WatchProgramObject.swift */; };
+		FC2546BD21C31167004B1588 /* WatchProgramObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546BB21C31106004B1588 /* WatchProgramObject.swift */; };
+		FC2546BF21C31852004B1588 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2546BE21C31851004B1588 /* WatchConnectivity.framework */; };
+		FC2546C121C31856004B1588 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2546C021C31856004B1588 /* WatchKit.framework */; };
+		FC2546C321C342D8004B1588 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2546C221C342D8004B1588 /* DBManager.swift */; };
 		FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */; };
 		FC51FEF921A9C8F7002CB2A4 /* Animals.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */; };
 		FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92B87219E158C00A3C839 /* AppDelegate.swift */; };
@@ -48,7 +55,6 @@
 		FCA92B93219E158C00A3C839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B91219E158C00A3C839 /* Main.storyboard */; };
 		FCA92B95219E158D00A3C839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B94219E158D00A3C839 /* Assets.xcassets */; };
 		FCA92B98219E158D00A3C839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA92B96219E158D00A3C839 /* LaunchScreen.storyboard */; };
-		FCA92BA5219E17CC00A3C839 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA92BA3219E17CC00A3C839 /* Interface.storyboard */; };
 		FCA92BA7219E17CD00A3C839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA92BA6219E17CD00A3C839 /* Assets.xcassets */; };
 		FCA92BAE219E17CE00A3C839 /* AnimalFlappersWK Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FCA92BAD219E17CE00A3C839 /* AnimalFlappersWK Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FCA92BB3219E17CE00A3C839 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA92BB2219E17CE00A3C839 /* InterfaceController.swift */; };
@@ -122,7 +128,13 @@
 		FC25468A21C2B617004B1588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2546AA21C2FF00004B1588 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		FC2546AB21C2FF01004B1588 /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
-		FC2546AC21C2FF01004B1588 /* HighScoreObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreObject.swift; sourceTree = "<group>"; };
+		FC2546B121C30DB9004B1588 /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		FC2546B521C310BC004B1588 /* WatchProgramInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchProgramInterfaceController.swift; sourceTree = "<group>"; };
+		FC2546B721C310D8004B1588 /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
+		FC2546BB21C31106004B1588 /* WatchProgramObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchProgramObject.swift; sourceTree = "<group>"; };
+		FC2546BE21C31851004B1588 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		FC2546C021C31856004B1588 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
+		FC2546C221C342D8004B1588 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		FC51FEC821A9BF26002CB2A4 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		FC51FEF821A9C8F7002CB2A4 /* Animals.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Animals.atlas; sourceTree = "<group>"; };
 		FCA92B84219E158C00A3C839 /* AnimalFlappers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,7 +148,6 @@
 		FCA92B97219E158D00A3C839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCA92B99219E158D00A3C839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCA92BA1219E17CC00A3C839 /* AnimalFlappersWK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFlappersWK.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCA92BA4219E17CC00A3C839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		FCA92BA6219E17CD00A3C839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCA92BA8219E17CD00A3C839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCA92BAD219E17CE00A3C839 /* AnimalFlappersWK Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AnimalFlappersWK Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +173,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2546C121C31856004B1588 /* WatchKit.framework in Frameworks */,
+				FC2546BF21C31852004B1588 /* WatchConnectivity.framework in Frameworks */,
 				FC2545EA21C19742004B1588 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +203,8 @@
 		FC2545E821C19742004B1588 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC2546C021C31856004B1588 /* WatchKit.framework */,
+				FC2546BE21C31851004B1588 /* WatchConnectivity.framework */,
 				FC25466721C1AE44004B1588 /* SpriteKit.framework */,
 				FC2545E921C19742004B1588 /* SpriteKit.framework */,
 			);
@@ -312,7 +327,7 @@
 		FCA92BA2219E17CC00A3C839 /* AnimalFlappersWK */ = {
 			isa = PBXGroup;
 			children = (
-				FCA92BA3219E17CC00A3C839 /* Interface.storyboard */,
+				FC2546B721C310D8004B1588 /* Interface.storyboard */,
 				FCA92BA6219E17CD00A3C839 /* Assets.xcassets */,
 				FCA92BA8219E17CD00A3C839 /* Info.plist */,
 			);
@@ -322,6 +337,7 @@
 		FCA92BB1219E17CE00A3C839 /* AnimalFlappersWK Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FC2546B521C310BC004B1588 /* WatchProgramInterfaceController.swift */,
 				FCA92BB2219E17CE00A3C839 /* InterfaceController.swift */,
 				FCA92BB4219E17CE00A3C839 /* ExtensionDelegate.swift */,
 				FCA92BB6219E17CE00A3C839 /* NotificationController.swift */,
@@ -335,9 +351,10 @@
 		FCA92BC7219F21EA00A3C839 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FC2546BB21C31106004B1588 /* WatchProgramObject.swift */,
 				FC2546AB21C2FF01004B1588 /* HighScoreTableViewCell.swift */,
-				FC2546AC21C2FF01004B1588 /* HighScoreObject.swift */,
 				FCA92B87219E158C00A3C839 /* AppDelegate.swift */,
+				FC2546C221C342D8004B1588 /* DBManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -345,6 +362,7 @@
 		FCA92BC8219F221300A3C839 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FC2546B121C30DB9004B1588 /* NewUserViewController.swift */,
 				FC2546AA21C2FF00004B1588 /* HighScoreViewController.swift */,
 				FCA92B8F219E158C00A3C839 /* GameViewController.swift */,
 				FCA92BCB219F22D700A3C839 /* HomeViewController.swift */,
@@ -528,8 +546,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2546B821C310D8004B1588 /* Interface.storyboard in Resources */,
 				FCA92BA7219E17CD00A3C839 /* Assets.xcassets in Resources */,
-				FCA92BA5219E17CC00A3C839 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +584,9 @@
 				FCA92B88219E158C00A3C839 /* AppDelegate.swift in Sources */,
 				FC2545DC21C1858D004B1588 /* ChooseAnimalViewController.swift in Sources */,
 				FCA92BCC219F22D700A3C839 /* HomeViewController.swift in Sources */,
-				FC2546B021C2FF01004B1588 /* HighScoreObject.swift in Sources */,
+				FC2546C321C342D8004B1588 /* DBManager.swift in Sources */,
+				FC2546BC21C31106004B1588 /* WatchProgramObject.swift in Sources */,
+				FC2546B321C30DB9004B1588 /* NewUserViewController.swift in Sources */,
 				FC51FEC921A9BF26002CB2A4 /* GameLogic.swift in Sources */,
 				FC2546AF21C2FF01004B1588 /* HighScoreTableViewCell.swift in Sources */,
 			);
@@ -576,6 +596,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC2546BD21C31167004B1588 /* WatchProgramObject.swift in Sources */,
+				FC2546B621C310BC004B1588 /* WatchProgramInterfaceController.swift in Sources */,
 				FCA92BB7219E17CE00A3C839 /* NotificationController.swift in Sources */,
 				FCA92BB5219E17CE00A3C839 /* ExtensionDelegate.swift in Sources */,
 				FCA92BB3219E17CE00A3C839 /* InterfaceController.swift in Sources */,
@@ -620,14 +642,6 @@
 				FCA92B97219E158D00A3C839 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		FCA92BA3219E17CC00A3C839 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FCA92BA4219E17CC00A3C839 /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

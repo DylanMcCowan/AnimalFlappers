@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class ChooseAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-  
-    
+class ChooseAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, WCSessionDelegate {
+ 
     @IBOutlet var pvAnimalSelector : UIPickerView!
     @IBOutlet var ivAnimalPreview : UIImageView!
     @IBOutlet var btnSelectAnimal : UIButton!
@@ -20,12 +20,35 @@ class ChooseAnimalViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func updateSelectedAnimal(){
        del.USER_ANIMAL_SELECTION = currSelectedAnimal
+        
+        sendWatchNewMessage(animalSelection: del.USER_ANIMAL_SELECTION.rawValue)
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ivAnimalPreview.image = UIImage(named: GameScene.birdTextureNames[0])
+        
         // Do any additional setup after loading the view.
+        
+        /* CODE BELOW: Author: Gus */
+        if WCSession.isSupported(){
+         let session = WCSession.default
+         session.delegate = self
+         session.activate()
+         sendWatchNewMessage(animalSelection: del.USER_ANIMAL_SELECTION.rawValue)
+         if session.isPaired != true {
+            print("apple watch not paired")
+         }
+         if session.isWatchAppInstalled{
+            print("watchkit app not installed")
+         }
+         }
+         else{
+            print("watchconnectivety not supported")
+         }
+        /* END OF GUS CODE */
+ 
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -66,6 +89,26 @@ class ChooseAnimalViewController: UIViewController, UIPickerViewDelegate, UIPick
         }
         
     }
+    
+    // MARK: WatchConnectivity Code
+    
+    //AUTHOR: GUS
+    func sendWatchNewMessage(animalSelection : String)
+    {
+        if WCSession.default.isReachable{
+            let message = ["message" : animalSelection]
+            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: nil)
+            
+        }
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) { }
+    
+    func sessionDidDeactivate(_ session: WCSession) { }
+    
+    
     
     /*
     // MARK: - Navigation
